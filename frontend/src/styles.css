@@ -1,0 +1,42 @@
+/* Custom Fonts */
+@font-face {
+  font-family: 'Morton';
+  src: url('../assets/fonts/MORTON.REGULAR.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neopixel';
+  src: url('../assets/fonts/NEOPIXEL-REGULAR.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('../assets/fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans Alt 1';
+  src: url('../assets/fonts/PIXELIFYSANS-VARIABLEFONT_WGHT (1).TTF') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans Alt 2';
+  src: url('../assets/fonts/PIXELIFYSANS-VARIABLEFONT_WGHT (2).TTF') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans Alt 3';
+  src: url('../assets/fonts/PIXELIFYSANS-VARIABLEFONT_WGHT (3).TTF') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
