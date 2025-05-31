@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './index.css' // Importing the CSS file for styles
-import Featured from '../pages/Home/featured.jsx' // Importing the Featured component
+import Featured from '../pages/Home/Featured.jsx' // Importing the Featured component
 function App() {
   const [count, setCount] = useState(0)
 
