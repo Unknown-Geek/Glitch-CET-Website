@@ -1,4 +1,37 @@
 /* Custom Fonts */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  background-color: #0D0E20;
+}
+body {
+  color: white;
+}
+
+@keyframes stepPauseDrop {
+  0% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(15px);
+  }
+  70% {
+    transform: translateY(30px); /* Pause at bottom */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-smooth-pause-drop {
+  animation: stepPauseDrop 1.4s steps(1, end) infinite;
+}
+
+
+
+
 @font-face {
   font-family: 'Morton';
   src: url('../assets/fonts/MORTON.REGULAR.OTF') format('opentype');
