@@ -19,7 +19,7 @@ function Start() {
                 {/* Background Logo */}
                 <img
                     className="bg-img absolute top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-[25%] opacity-[0.2] brightness-[0.8] contrast-[1.0] z-0 pointer-events-none"
-                    src='image.png'
+                    src='bg-image.png'
                 />
 
                 {/* Description Text */}
