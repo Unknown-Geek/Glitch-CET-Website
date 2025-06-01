@@ -1,7 +1,5 @@
 import React from 'react';
-import featured from '../../public/Featured.png';
-
-// Import your images (replace these with your actual imports)
+import featured from '../../public/Featured.png'; 
 import image1 from '../../public/image.png';
 import image2 from '../../public/image.png';
 import image3 from '../../public/image.png';
@@ -10,10 +8,7 @@ import image5 from '../../public/image.png';
 import image6 from '../../public/image.png';
 
 import button from '../../public/button.png';
-
-
 import square from '../../public/Squares.png';
-
 
 const cardsData = [
   { image: image1, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(01)" },
@@ -27,11 +22,11 @@ const cardsData = [
 function Featured() {
   return (
     <div className="bg-black p-5 max-w-[1600px] mx-auto">
-      <img className="pb-5 pt-5 ml-5" src={featured} alt="Featured" />
-      
-      <div className="grid grid-cols-3  gap-6 ml-5 ">
+      <img className="pb-5 pt-5 md:ml-5" src={featured} alt="Featured" />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:ml-5">
         {cardsData.map(({ image, button, square, text, number }, idx) => (
-          <div key={idx} className="w-[480.49px] h-[480px] border border-white">
+          <div key={idx} className="w-full max-w-[480.49px] h-[480px] border border-white">
             <div className="pt-8 flex flex-col items-center justify-start h-full relative">
               <img src={image} alt={`Card image ${idx + 1}`} />
               <p className="pr-12 pl-13 pb-5 font-pixelify text-white uppercase ">{text}</p>
