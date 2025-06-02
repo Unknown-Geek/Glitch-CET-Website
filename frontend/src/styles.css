@@ -1,7 +1,5 @@
 /* Custom Fonts */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 *{
   background-color: #0D0E20;
