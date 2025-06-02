@@ -4,14 +4,44 @@ import './styles.css'
 import Start from './Start/Start'
 import './index.css' // Importing the CSS file for styles
 import Featured from '../pages/Home/Featured.jsx' 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Cards from '../pages/Games/Cards.jsx'
+
 function App() {
 
   return (
     
     <>
-      <Navbar/>
-      <Start/>
-      <Featured />
+      <BrowserRouter>
+
+      <Routes>
+        <Route
+          path="/"
+          element=
+          {
+          <>
+            <Navbar />
+            <Start />
+            <Featured />
+          </>
+          }
+        />
+
+        <Route
+          path="/games"
+          element=
+          {
+          <>
+            <Navbar />
+            <Cards/>
+          </>
+          }
+        />
+       
+      </Routes>
+
+    </BrowserRouter>
+      
     </>)
 }
 
