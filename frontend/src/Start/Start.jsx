@@ -13,7 +13,7 @@ function Start() {
 
                 {/* Title Image */}
                 <div className="z-[1] mb-[10px]">
-                    <img className="text1" src='glitch_font.png' />
+                    <img className="text1 mx-auto" src='glitch_font.png' />
                 </div>
 
                 {/* Background Logo */}
@@ -25,8 +25,8 @@ function Start() {
                 {/* Description Text */}
                 <div className="z-[1] text-center mb-[20px]">
                     <div>
-                        <span style={{ fontFamily: 'Morton' }} className="text2 font-normal text-white leading-none my-[6px]">CET'S </span>
-                        <span style={{ fontFamily: 'Morton' }} className="text2 font-normal text-[#ED246D] leading-none my-[6px]">FIRST </span>
+                        <span style={{ fontFamily: 'Morton' }} className="text2 font-normal text-white leading-none my-[8px]">CET'S </span>
+                        <span style={{ fontFamily: 'Morton' }} className="text2 font-normal text-[#ED246D] leading-none my-[8px]">FIRST </span>
                     </div>
                     <div>
                         <span style={{ fontFamily: 'Morton' }} className="text2 font-normal text-white leading-none my-[6px]">GAME DEV </span>
