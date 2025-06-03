@@ -16,7 +16,7 @@ function Navbar() {
       <div className="navbar-container flex items-center justify-between text-white rounded-[15px] border border-[#F92672] px-[14px] py-[10px] mx-auto">
         <div>
           <img
-            className="logo-img p-[14px]"
+            className="logo-img p-[8px]"
             src="glitch_font.png"
             alt="Glitch Logo"
           />

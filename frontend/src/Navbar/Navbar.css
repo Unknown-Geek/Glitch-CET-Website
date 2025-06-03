@@ -6,7 +6,7 @@
   }
   .navbar-container{
     gap: 60px;
-    width: 800px;
+    width: 900px;
   }
 .navbar-links {
     gap: 40px;
@@ -17,19 +17,19 @@
   .navbar-container {
     width: 95%; 
     flex-direction: row;
-    gap: 10px;
+    gap: 0px;
   }
 
   .navbar-links {
     flex-direction: row;
-    gap: 10px;
+    gap: 0px;
   }
 
   .navbar-text {
-    font-size: 15px;
+    font-size: 10px;
   }
 
   .logo-img {
-    width: 60px;
+    width: 80px;
   }
 }
