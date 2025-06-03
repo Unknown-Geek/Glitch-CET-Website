@@ -37,8 +37,8 @@ function Start() {
                 {/* Arrow */}
                 <div className="arrow z-[1]">
                     <img
-                        className="animate-smooth-pause-drop"
-                        src='ArrowComponent.png'
+                        className="animate-smooth-pause-drop w-[45px]"
+                        src='Arrow.svg'
                     />
                 </div>
             </div>
