@@ -7,6 +7,8 @@ import Featured from "../pages/Home/Featured.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cards from "../pages/Games/Cards.jsx";
 import About from "../pages/Home/About.jsx";
+import ScrollingText from "../pages/Home/ScrollingText.jsx";
+
 function App() {
   return (
     <>
@@ -19,7 +21,8 @@ function App() {
                 <Navbar />
                 <Start />
                 <About />
-                <Featured />
+                <ScrollingText text="Glitch" />
+                <Featured />               
               </>
             }
           />
@@ -29,6 +32,7 @@ function App() {
             element={
               <>
                 <Navbar />
+                <ScrollingText text="Games"/>
                 <Cards />
               </>
             }

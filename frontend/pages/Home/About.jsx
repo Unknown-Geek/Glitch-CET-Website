@@ -3,6 +3,7 @@ import hachi from "../../assets/hachi.png";
 export default function About() {
   return (
     <div className="flex flex-col p-6 md:p-12  justify-start min-h-screen mb-10">
+      
       <h1
         className="text-3xl md:text-6xl font-normal  mb-4 "
         style={{ fontFamily: "Morton" }}
@@ -51,7 +52,7 @@ export default function About() {
             className=" w-[10px] h-[10px] sm:w-[30px] sm:h-[30px] lg:w-[70px] lg:h-[70px] "
           />
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
