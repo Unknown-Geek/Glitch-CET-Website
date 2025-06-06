@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
@@ -24,14 +24,18 @@ function Navbar() {
 
         <div className="navbar-links flex items-center space-x-6">
           {navItems.map((item, index) => (
-            <Link
+            <NavLink
               key={index}
               to={item.path}
               style={{ fontFamily: 'neopixel' }}
-              className="navbar-text font-light cursor-pointer hover:text-[#ED246D] transition-colors duration-200"
+              className={({ isActive }) =>
+                `navbar-text font-light cursor-pointer transition-colors duration-200 ${
+                  isActive ? 'text-[#ED246D]' : 'text-white'
+                } hover:text-[#ED246D]`
+              }
             >
               {item.name}
-            </Link>
+            </NavLink>
           ))}
         </div>
       </div>
