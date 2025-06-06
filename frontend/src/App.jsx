@@ -22,7 +22,8 @@ function App() {
                 <Start />
                 <About />
                 <ScrollingText text="Glitch" />
-                <Featured />               
+                <Featured />   
+                <ScrollingText text="Glitch" />            
               </>
             }
           />
@@ -37,6 +38,30 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/events"
+            element={
+              <>
+                <Navbar />
+              </>
+            }
+          />
+          <Route
+            path="/team"
+            element={
+              <>
+                <Navbar />
+              </>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <>
+                <Navbar />
+              </>
+            }
+          />  
         </Routes>
       </BrowserRouter>
     </>
