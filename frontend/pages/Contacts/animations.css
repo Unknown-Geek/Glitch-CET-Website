@@ -1,0 +1,53 @@
+.reveal-container {
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  width: 100%;
+  margin-top: 1.25rem; /* Tailwind's mt-5 */
+}
+
+.reveal-image {
+  width: 8rem;   /* Tailwind's w-32 */
+  height: 8rem;  /* Tailwind's h-32 */
+  animation: revealMaskDown 4s ease-out forwards;
+  clip-path: inset(0 0 100% 0); /* Start fully hidden from top */
+}
+
+/* Keyframes to reveal top-to-bottom */
+@keyframes revealMaskDown {
+  to {
+    clip-path: inset(0 0 0 0); /* Fully revealed */
+  }
+}
+
+.hover-slide-disappear-up {
+  display: inline-block;
+}
+
+.hover-slide-disappear-up:hover {
+  animation: slideDownDisappearUp 0.6s ease forwards;
+}
+
+@keyframes slideDownDisappearUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  41% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
