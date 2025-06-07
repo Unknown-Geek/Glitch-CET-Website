@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cards from "../pages/Games/Cards.jsx";
 import About from "../pages/Home/About.jsx";
 import ScrollingText from "../pages/Home/ScrollingText.jsx";
+import Contacts from "../pages/Contacts/Contacts.jsx";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
             element={
               <>
                 <Navbar />
+                <Contacts />
               </>
             }
           />  
