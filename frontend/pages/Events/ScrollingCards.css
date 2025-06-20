@@ -1,0 +1,71 @@
+/* Infinite Scrolling Cards Animation */
+@keyframes infiniteScroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        transform: translateX(-50%); 
+    }
+}
+
+.scroll-container {
+    animation: infiniteScroll 25s linear infinite;
+    will-change: transform;
+}
+
+.scroll-container:hover {
+    animation-play-state: paused;
+}
+
+/* Event Card Styles */
+div.event-card {
+    background: linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%) !important;
+    background-color: #F92672 !important;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+div.event-card:hover {
+    transform: scale(1.02);
+}
+
+/* Dotted gradient overlay effect */
+div.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px, 15px 15px;
+    pointer-events: none;
+    border-radius: 1rem;
+    z-index: 0;
+}
+
+/* Ensure card content is above the dotted overlay but below dimming */
+div.event-card > *:not(.dimming-effect) {
+    position: relative;
+    z-index: 2;
+}
+
+/* Override global background for card elements */
+div.event-card *:not([data-dimming="true"]) {
+    background-color: transparent !important;
+}
+
+
+/* Mascot image styling */
+.mascot-image {
+    width: 300px;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+}
