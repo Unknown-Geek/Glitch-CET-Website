@@ -9,7 +9,7 @@ import Cards from "../pages/Games/Cards.jsx";
 import About from "../pages/Home/About.jsx";
 import ScrollingText from "../pages/Home/ScrollingText.jsx";
 import Contacts from "../pages/Contacts/Contacts.jsx";
-
+import Upcoming from "../pages/Events/Upcoming.jsx";
 function App() {
   return (
     <>
@@ -44,6 +44,8 @@ function App() {
             element={
               <>
                 <Navbar />
+                <Upcoming />
+               
               </>
             }
           />
@@ -52,6 +54,8 @@ function App() {
             element={
               <>
                 <Navbar />
+                <Upcoming />
+                <ScrollingText text="EVENTS" />
               </>
             }
           />
