@@ -47,9 +47,9 @@ export default function Upcoming() {
 
             <ScrollingText text="EVENTS" />
 
-            <div className="min-h-screen bg-[#0B0C1B] p-6 sm:p-9 relative">
+            <div className="min-h-screen bg-[#0B0C1B] py-6 px-2 md:p-9 relative">
                 <h1
-                    className="text-3xl md:text-5xl font-normal mb-8 md:mb-12 text-white"
+                    className="text-xl md:text-5xl font-normal mb-8 md:mb-12 text-white"
                     style={{ fontFamily: "Morton" }}
                 >
                     <span className="text-[#ED246D]">//</span>UPCOMING{" "}
@@ -139,7 +139,7 @@ export default function Upcoming() {
                                     <img
                                         src="/hachi3d.png"
                                         alt="Hachi Mascot"
-                                        className="mascot-image max-w-[80%] h-auto"
+                                        className="w-2xl md:mascot-image max-w-[80%] h-auto"
                                     />
                                 </div>
 
@@ -164,17 +164,18 @@ export default function Upcoming() {
                                 {/* Card Background Dimming Effect */}
                                 {hoveredCardIndex === index && (
                                     <div
-                                        className="dimming-effect"
+                                        data-dimming="true"
                                         style={{
                                             position: 'absolute',
-                                            top: '0',
-                                            left: '0',
-                                            right: '0',
-                                            bottom: '0',
-                                            background: 'rgba(0, 0, 0, 0.7)',
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            bottom: 0,
+                                            backgroundColor: 'rgba(0, 0, 0, 0.6)',
                                             borderRadius: '1rem',
-                                            zIndex: '35',
-                                            pointerEvents: 'none'
+                                            zIndex: 35,
+                                            pointerEvents: 'none',
+                                            content: '""'
                                         }}
                                     />
                                 )}
