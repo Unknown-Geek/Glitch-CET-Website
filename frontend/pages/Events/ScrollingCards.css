@@ -31,6 +31,15 @@ div.event-card:hover {
     transform: scale(1.02);
 }
 
+/* Arrow animation when card is hovered */
+div.event-card:hover .arrow-hover {
+    transform: rotate(-40deg) scale(1.15);
+}
+
+div.event-card:hover .arrow-hover img {
+    filter: brightness(0) saturate(100%) invert(1);
+}
+
 /* Dotted gradient overlay effect */
 div.event-card::before {
     content: '';
@@ -48,15 +57,25 @@ div.event-card::before {
     z-index: 0;
 }
 
-/* Ensure card content is above the dotted overlay */
+/* Ensure card content is above the dotted overlay but below overlay */
 div.event-card > * {
     position: relative;
     z-index: 2;
 }
 
+/* Ensure overlay stays within card bounds and is above all content */
+div.event-card > .card-overlay {
+    z-index: 40 !important;
+}
+
 /* Override global background for card elements */
 div.event-card * {
     background-color: transparent !important;
+}
+
+/* Ensure overlay background is not overridden */
+div.event-card .card-overlay {
+    background: linear-gradient(135deg, #0B0C1B 0%, #1a1b2e 100%) !important;
 }
 
 /* Mascot image styling - remove empty space around the image */
@@ -70,6 +89,43 @@ div.event-card * {
 }
 
 /* Card click overlay animation - slides from bottom of card */
+
+
+.card-overlay.show {
+    bottom: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Enhanced content animation with stagger effect */
+.overlay-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none;
+    color: white !important;
+}
+
+.card-overlay.show .overlay-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Individual element animations */
+.overlay-content > div {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none;
+}
+
+.card-overlay.show .overlay-content > div {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Arrow hover effect - triggered by card hover */
+.arrow-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 
 /* Card blur effect when overlay is active */
@@ -103,12 +159,14 @@ div.event-card * {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 25;
-    transition: background 0.2s ease;
+    z-index: 35;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 .close-overlay:hover {
     background: #E91E63;
+    transform: scale(1.1);
 }
 
 /* Description text with black characters and white borders */

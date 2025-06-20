@@ -3,9 +3,7 @@ import "./ScrollingCards.css"
 import { useState } from "react"
 
 export default function Upcoming() {
-    const [selectedEvent, setSelectedEvent] = useState(null);
-    const [showOverlay, setShowOverlay] = useState(false);
-    const [activeCardIndex, setActiveCardIndex] = useState(null);
+    const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
 
     const events = [
         { id: 1, day: "28", month: "JUN", time: "4:00 PM", title: "WIX WORKSHOP", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam velit. Ut sit amet auctor sem. Nullam ac tincidunt tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus dolor erat, ornare non scelerisque neo, hendrerit a ligula." },
@@ -15,20 +13,6 @@ export default function Upcoming() {
     ];
 
     const duplicatedEvents = [...events, ...events];
-
-    const handleCardClick = (event, cardIndex) => {
-        console.log('Card clicked:', event.title, 'Index:', cardIndex); // Debug log
-        setSelectedEvent(event);
-        setActiveCardIndex(cardIndex);
-        setShowOverlay(true);
-    };
-
-    const closeOverlay = () => {
-        console.log('Closing overlay'); // Debug log
-        setShowOverlay(false);
-        setSelectedEvent(null);
-        setActiveCardIndex(null);
-    };
 
     return (
         <div>
@@ -69,20 +53,22 @@ export default function Upcoming() {
                     <span className="text-[#ED246D]">EVENTS</span>
                 </h1>
 
-                <div className="">
+                <div className="overflow-x-clip">
                     <div className="flex scroll-container gap-6 md:gap-8 w-max">
                         {duplicatedEvents.map((event, index) => (
                             <div 
                                 key={`event-${event.id}-${index}`}
-                                className={`event-card w-[546px] h-[648px] rounded-2xl p-8 flex flex-col border-2 border-[#FAFAFA] relative ${activeCardIndex === index ? 'blurred' : ''}`}
+                                className={`event-card w-[546px] h-[648px] rounded-2xl p-8 flex flex-col border-2 border-[#FAFAFA] relative`}
                                 style={{ 
                                     background: 'linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%)',
                                     backgroundColor: '#F92672',
                                     backgroundImage: 'linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%)',
-                                    overflow: 'visible'
+                                    overflow: 'hidden'
                                 }}
-                                onClick={() => handleCardClick(events.find(e => e.id === event.id), index)}
+                                onMouseEnter={() => setHoveredCardIndex(index)}
+                                onMouseLeave={() => setHoveredCardIndex(null)}
                             >
+                            
                                 {/* Card Header - Date and Arrow */}
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="text-left">
@@ -102,11 +88,25 @@ export default function Upcoming() {
                                             {event.time}
                                         </div>
                                     </div>
-                                    <div className="transform rotate-270 ">
+                                    <div 
+                                        className="transform rotate-270"
+                                        style={{
+                                            transform: hoveredCardIndex === index 
+                                                ? 'rotate(-40deg) scale(1.15)' 
+                                                : 'rotate(0deg)',
+                                            transition: 'transform 0.3s ease-in-out'
+                                        }}
+                                    >
                                         <img 
                                             src="/Arrow.svg" 
                                             alt="Arrow" 
                                             className="w-12 h-12"
+                                            style={{
+                                                filter: hoveredCardIndex === index 
+                                                    ? 'brightness(0) saturate(100%) invert(0)' 
+                                                    : 'brightness(1)',
+                                                transition: 'filter 0.3s ease-in-out'
+                                            }}
                                         />
                                     </div>
                                 </div>
@@ -136,51 +136,51 @@ export default function Upcoming() {
                                 </h3>
 
                                 {/* Card Overlay - slides from bottom of this card */}
-                                {activeCardIndex === index && selectedEvent && (
-                                    <div 
-                                        className={` ${showOverlay ? 'show' : ''} border-t-2 border-[#F92672] `}
-                                        style={{ 
+                                {hoveredCardIndex === index && (
+                                    <div className="border-t-4 border-[#eb0056]  "
+                                        style={{
                                             position: 'absolute',
-                                            bottom: showOverlay ? '0' : '-100%',
+                                            bottom: '0',
                                             left: '0',
                                             right: '0',
                                             height: '50%',
                                             background: 'linear-gradient(135deg, #0B0C1B 0%, #1a1b2e 100%)',
-                                            borderRadius: '20px 20px 20px 20px',
-                                            zIndex: 20,
-                                            padding: '1.5rem',
-                                            color: 'white',
-                                            
-                                            transition: 'bottom 0.6s ease-in-out'
+                                            borderRadius: '1rem 1rem 1rem 1rem',
+                                            padding: '2rem',
+                                            zIndex: '40',
+                                            transform: 'translateY(0)',
+                                            transition: 'transform 0.1s ease-out',
+                                            maxHeight: '60%',
+                                            overflow: 'hidden',
+                                          
                                         }}
                                     >
-                                        <button className="close-overlay" onClick={(e) => {
-                                            e.stopPropagation();
-                                            closeOverlay();
-                                        }}>
-                                            ×
-                                        </button>
-                                        
-                                        <div className="overlay-content">
-                                        
-                                            
-                                            <div className="mb-4">
+                                        <div style={{ position: 'relative', zIndex: '1' }}>
+                                            <div style={{ marginBottom: '1rem' }}>
                                                 <div 
-                                                    className="text-xs opacity-80 mb-2 uppercase tracking-wide text-white font-neopixel" 
-                                                    style={{ fontFamily: "Neopixel" }}
+                                                    style={{ 
+                                                        fontFamily: "Neopixel",
+                                                        fontSize: '0.75rem',
+                                                        opacity: '0.8',
+                                                        marginBottom: '0.5rem',
+                                                        textTransform: 'uppercase',
+                                                        letterSpacing: '0.05em',
+                                                        color: 'white'
+                                                    }}
                                                 >
                                                     = EVENT DESCRIPTION
                                                 </div>
                                                 <p 
-                                                    className="leading-relaxed text-black" 
                                                     style={{ 
                                                         fontFamily: "Neopixel",
+                                                        lineHeight: '1.6',
+                                                        color: 'black',
                                                         textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 0 1px 0 white, 1px 0 0 white, 0 -1px 0 white, -1px 0 0 white',
                                                         fontSize: '14px',
                                                         fontWeight: 'bold'
                                                     }}
                                                 >
-                                                    {selectedEvent.description.toUpperCase()}
+                                                    {event.description.toUpperCase()}
                                                 </p>
                                             </div>
                                         </div>
