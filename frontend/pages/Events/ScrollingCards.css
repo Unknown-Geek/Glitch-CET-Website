@@ -55,7 +55,7 @@ div.event-card > *:not(.dimming-effect) {
 }
 
 /* Override global background for card elements */
-div.event-card *:not(.dimming-effect) {
+div.event-card *:not([data-dimming="true"]) {
     background-color: transparent !important;
 }
 
@@ -68,10 +68,4 @@ div.event-card *:not(.dimming-effect) {
     object-position: center;
     transform: scale(1.2);
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
-}
-
-/* Dimming effect styling */
-.dimming-effect {
-    position: absolute !important;
-    z-index: 15 !important;
 }
