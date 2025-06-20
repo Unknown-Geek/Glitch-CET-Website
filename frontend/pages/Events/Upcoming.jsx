@@ -69,14 +69,14 @@ export default function Upcoming() {
                         )}
                     </AnimatePresence>
 
-                    <div className="flex scroll-container gap-6 md:gap-8 w-max relative z-30">
+                    <div className="flex scroll-container gap-4 md:gap-6 w-max relative z-30">
                         {duplicatedEvents.map((event, index) => (
                             <div
                                 key={`event-${event.id}-${index}`}
-                                className="event-card rounded-2xl p-6 sm:p-8 flex flex-col border-2 border-[#FAFAFA] relative"
+                                className="event-card rounded-2xl p-6 sm:p-9 flex flex-col border-2 border-[#FAFAFA] relative"
                                 style={{
-                                    width: isMobile ? "80vw" : "546px",
-                                    height: isMobile ? "80%" : "648px",
+                                    width: isMobile ? "80vw" : "516px",
+                                    height: isMobile ? "80%" : "638px",
                                     background: 'linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%)',
                                     overflow: 'hidden'
                                 }}
@@ -93,7 +93,7 @@ export default function Upcoming() {
                                 }}
                             >
                                 {/* Card Header - Date and Arrow */}
-                                <div className="flex justify-between items-start mb-4 sm:mb-6">
+                                <div className="flex justify-between items-start  ">
                                     <div className="text-left">
                                         <div
                                             className="text-5xl sm:text-6xl mb-[-10px] font-bold leading-none text-white"
@@ -135,11 +135,11 @@ export default function Upcoming() {
                                 </div>
 
                                 {/* Mascot Image */}
-                                <div className="flex justify-center items-center mb-4">
+                                <div className="flex justify-center items-center ">
                                     <img
                                         src="/hachi3d.png"
                                         alt="Hachi Mascot"
-                                        className="w-2xl md:mascot-image max-w-[80%] h-auto"
+                                        className="w-2xl md:mascot-image max-w-[80%] "
                                     />
                                 </div>
 
@@ -188,23 +188,23 @@ export default function Upcoming() {
                                             animate={{ y: 0 }}
                                             exit={{ y: "100%" }}
                                             transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                                            className="border-t-4 border-[#eb0056]"
+                                            className="border-t-4 border-[#eb0056] p-2 md:p-4"
                                             style={{
                                                 position: 'absolute',
                                                 bottom: '0',
                                                 left: '0',
                                                 right: '0',
-                                                height: isMobile ? '40%' : '40%',
+                                                height: isMobile ? '50%' : '40%',
                                                 background: 'linear-gradient(135deg, #0B0C1B 0%, #1a1b2e 100%)',
                                                 borderRadius: '1rem',
-                                                padding: '2rem',
+                                            
                                                 zIndex: '40',
                                                 overflow: 'hidden'
                                             }}
                                         >
                                             <div style={{ position: 'relative', zIndex: '1' }}>
                                                 <div style={{ marginBottom: '1rem' }}>
-                                                    <div
+                                                    <div className="text-xs md:text-lg hidden md:block"
                                                         style={{
                                                             fontFamily: "Neopixel",
                                                             fontSize: '0.75rem',
@@ -217,13 +217,13 @@ export default function Upcoming() {
                                                     >
                                                         = EVENT DESCRIPTION
                                                     </div>
-                                                    <p
+                                                    <p className="text-xs md:text-[14px] overflow-y-scroll md:overflow-auto"
                                                         style={{
                                                             fontFamily: "Neopixel",
                                                             lineHeight: '1.6',
                                                             color: 'black',
                                                             textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 0 1px 0 white, 1px 0 0 white, 0 -1px 0 white, -1px 0 0 white',
-                                                            fontSize: '14px',
+                                                             
                                                             fontWeight: 'bold'
                                                         }}
                                                     >
