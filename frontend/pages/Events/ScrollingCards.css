@@ -31,15 +31,6 @@ div.event-card:hover {
     transform: scale(1.02);
 }
 
-/* Arrow animation when card is hovered */
-div.event-card:hover .arrow-hover {
-    transform: rotate(-40deg) scale(1.15);
-}
-
-div.event-card:hover .arrow-hover img {
-    filter: brightness(0) saturate(100%) invert(1);
-}
-
 /* Dotted gradient overlay effect */
 div.event-card::before {
     content: '';
@@ -57,28 +48,19 @@ div.event-card::before {
     z-index: 0;
 }
 
-/* Ensure card content is above the dotted overlay but below overlay */
-div.event-card > * {
+/* Ensure card content is above the dotted overlay but below dimming */
+div.event-card > *:not(.dimming-effect) {
     position: relative;
     z-index: 2;
 }
 
-/* Ensure overlay stays within card bounds and is above all content */
-div.event-card > .card-overlay {
-    z-index: 40 !important;
-}
-
 /* Override global background for card elements */
-div.event-card * {
+div.event-card *:not(.dimming-effect) {
     background-color: transparent !important;
 }
 
-/* Ensure overlay background is not overridden */
-div.event-card .card-overlay {
-    background: linear-gradient(135deg, #0B0C1B 0%, #1a1b2e 100%) !important;
-}
 
-/* Mascot image styling - remove empty space around the image */
+/* Mascot image styling */
 .mascot-image {
     width: 300px;
     height: 280px;
@@ -88,85 +70,8 @@ div.event-card .card-overlay {
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
 }
 
-/* Card click overlay animation - slides from bottom of card */
-
-
-.card-overlay.show {
-    bottom: 0 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+/* Dimming effect styling */
+.dimming-effect {
+    position: absolute !important;
+    z-index: 15 !important;
 }
-
-/* Enhanced content animation with stagger effect */
-.overlay-content {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: none;
-    color: white !important;
-}
-
-.card-overlay.show .overlay-content {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-/* Individual element animations */
-.overlay-content > div {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: none;
-}
-
-.card-overlay.show .overlay-content > div {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-/* Arrow hover effect - triggered by card hover */
-.arrow-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-/* Card blur effect when overlay is active */
-.event-card.blurred::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 15;
-    border-radius: 1rem;
-    pointer-events: none;
-}
-
-/* Close button for overlay */
-.close-overlay {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: #F92672;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 35;
-    transition: all 0.3s ease;
-    transform: scale(1);
-}
-
-.close-overlay:hover {
-    background: #E91E63;
-    transform: scale(1.1);
-}
-
-/* Description text with black characters and white borders */
