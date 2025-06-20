@@ -17,12 +17,14 @@ export default function Upcoming() {
     const duplicatedEvents = [...events, ...events];
 
     const handleCardClick = (event, cardIndex) => {
+        console.log('Card clicked:', event.title, 'Index:', cardIndex); // Debug log
         setSelectedEvent(event);
         setActiveCardIndex(cardIndex);
         setShowOverlay(true);
     };
 
     const closeOverlay = () => {
+        console.log('Closing overlay'); // Debug log
         setShowOverlay(false);
         setSelectedEvent(null);
         setActiveCardIndex(null);
@@ -38,7 +40,7 @@ export default function Upcoming() {
                         backgroundImage: "url('/bgevents.svg')",
                         mixBlendMode: "overlay",
                         opacity: 0.4,
-                        filter: "brightness(0.7) contrast(0.8)"
+                        filter: " contrast(0.8)"
                     }}
                 ></div>
                 <div className="relative text-center space-y-4 z-10 max-w-4xl mx-auto px-4">
@@ -67,16 +69,17 @@ export default function Upcoming() {
                     <span className="text-[#ED246D]">EVENTS</span>
                 </h1>
 
-                <div className="overflow-hidden">
+                <div className="">
                     <div className="flex scroll-container gap-6 md:gap-8 w-max">
                         {duplicatedEvents.map((event, index) => (
                             <div 
                                 key={`event-${event.id}-${index}`}
-                                className={`event-card w-[546px] h-[648px] rounded-2xl p-8 flex flex-col overflow-hidden border-2 border-[#FAFAFA] relative ${activeCardIndex === index ? 'blurred' : ''}`}
+                                className={`event-card w-[546px] h-[648px] rounded-2xl p-8 flex flex-col border-2 border-[#FAFAFA] relative ${activeCardIndex === index ? 'blurred' : ''}`}
                                 style={{ 
                                     background: 'linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%)',
                                     backgroundColor: '#F92672',
-                                    backgroundImage: 'linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%)'
+                                    backgroundImage: 'linear-gradient(135deg, #F92672 0%, #E91E63 50%, #C2185B 100%)',
+                                    overflow: 'visible'
                                 }}
                                 onClick={() => handleCardClick(events.find(e => e.id === event.id), index)}
                             >
@@ -99,11 +102,11 @@ export default function Upcoming() {
                                             {event.time}
                                         </div>
                                     </div>
-                                    <div className="transform rotate-180">
+                                    <div className="transform rotate-270 ">
                                         <img 
                                             src="/Arrow.svg" 
                                             alt="Arrow" 
-                                            className="w-8 h-8"
+                                            className="w-12 h-12"
                                         />
                                     </div>
                                 </div>
@@ -134,7 +137,23 @@ export default function Upcoming() {
 
                                 {/* Card Overlay - slides from bottom of this card */}
                                 {activeCardIndex === index && selectedEvent && (
-                                    <div className={`card-overlay ${showOverlay ? 'show' : ''}`}>
+                                    <div 
+                                        className={` ${showOverlay ? 'show' : ''} border-t-2 border-[#F92672] `}
+                                        style={{ 
+                                            position: 'absolute',
+                                            bottom: showOverlay ? '0' : '-100%',
+                                            left: '0',
+                                            right: '0',
+                                            height: '50%',
+                                            background: 'linear-gradient(135deg, #0B0C1B 0%, #1a1b2e 100%)',
+                                            borderRadius: '20px 20px 20px 20px',
+                                            zIndex: 20,
+                                            padding: '1.5rem',
+                                            color: 'white',
+                                            
+                                            transition: 'bottom 0.6s ease-in-out'
+                                        }}
+                                    >
                                         <button className="close-overlay" onClick={(e) => {
                                             e.stopPropagation();
                                             closeOverlay();
@@ -142,48 +161,28 @@ export default function Upcoming() {
                                             ×
                                         </button>
                                         
-                                        <div className="flex items-center mb-4">
-                                            <div className="text-left mr-6">
-                                                <div 
-                                                    className="text-4xl font-bold leading-none mb-1 text-white" 
-                                                    style={{ fontFamily: "Morton" }}
-                                                >
-                                                    {selectedEvent.day}
-                                                </div>
-                                                <div 
-                                                    className="text-2xl font-medium leading-none mb-1 text-white" 
-                                                    style={{ fontFamily: "Morton" }}
-                                                >
-                                                    {selectedEvent.month}
-                                                </div>
-                                                <div className="text-sm text-[#F92672]" style={{ fontFamily: "Morton" }}>
-                                                    {selectedEvent.time}
-                                                </div>
-                                            </div>
-                                            <div className="flex-1">
-                                                <h2 
-                                                    className="text-2xl font-bold mb-2" 
-                                                    style={{ fontFamily: "Morton" }}
-                                                >
-                                                    {selectedEvent.title.split(' ').map((word, wordIndex) => (
-                                                        <span key={wordIndex} className={wordIndex === 0 ? "text-[#F92672]" : "text-white"}>
-                                                            {word}{wordIndex < selectedEvent.title.split(' ').length - 1 ? ' ' : ''}
-                                                        </span>
-                                                    ))}
-                                                </h2>
-                                            </div>
-                                        </div>
+                                        <div className="overlay-content">
                                         
-                                        <div className="mb-4">
-                                            <div 
-                                                className="text-xs opacity-80 mb-2 uppercase tracking-wide text-white font-neopixel" 
-                                                style={{ fontFamily: "Neopixel" }}
-                                            >
-                                                = EVENT DESCRIPTION
+                                            
+                                            <div className="mb-4">
+                                                <div 
+                                                    className="text-xs opacity-80 mb-2 uppercase tracking-wide text-white font-neopixel" 
+                                                    style={{ fontFamily: "Neopixel" }}
+                                                >
+                                                    = EVENT DESCRIPTION
+                                                </div>
+                                                <p 
+                                                    className="leading-relaxed text-black" 
+                                                    style={{ 
+                                                        fontFamily: "Neopixel",
+                                                        textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 0 1px 0 white, 1px 0 0 white, 0 -1px 0 white, -1px 0 0 white',
+                                                        fontSize: '14px',
+                                                        fontWeight: 'bold'
+                                                    }}
+                                                >
+                                                    {selectedEvent.description.toUpperCase()}
+                                                </p>
                                             </div>
-                                            <p className="text-white text-sm leading-relaxed">
-                                                {selectedEvent.description}
-                                            </p>
                                         </div>
                                     </div>
                                 )}
