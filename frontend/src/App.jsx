@@ -10,6 +10,7 @@ import About from "../pages/Home/About.jsx";
 import ScrollingText from "../pages/Home/ScrollingText.jsx";
 import Contacts from "../pages/Contacts/Contacts.jsx";
 import Upcoming from "../pages/Events/Upcoming.jsx";
+import PreviousEvents from "../pages/Events/PreviousEvents.jsx";
 function App() {
   return (
     <>
@@ -45,7 +46,7 @@ function App() {
               <>
                 <Navbar />
                 <Upcoming />
-               
+                <PreviousEvents/>
               </>
             }
           />
