@@ -1,0 +1,14 @@
+@keyframes Scroll-Left {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-35%);
+    }
+}
+
+.Scroll-Left {
+    animation: Scroll-Left 18s linear infinite;
+    
+}

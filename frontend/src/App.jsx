@@ -56,7 +56,7 @@ function App() {
               <>
                 <Navbar />
                 <Upcoming />
-                <ScrollingText text="EVENTS" />
+                <ScrollingText text="TEAM" />
               </>
             }
           />
