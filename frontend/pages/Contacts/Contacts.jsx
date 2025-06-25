@@ -1,59 +1,65 @@
 import React from 'react';
 import './animations.css';
-import yellow from '../../public/yellow_arrow.png'; // Adjust the path as necessary
-import line from '../../public/Line 6.png'; // Adjust the path as necessary
+import yellow from '../../public/yellow_arrow.png';
+import line from '../../public/Line 6.png';
 
 const socials = [
-  { src: '/email.png', hover: 'glitchclubcet@gmail.com', alt: 'Email', width: 470, height: 81 },
-  { src: '/linkedin.png', hover: 'glitchcet', alt: 'LinkedIn', width: 470, height: 81 },
-  { src: '/discord.png', hover: 'discord.gg/opgRQ9gQTq', alt: 'Discord', width: 470, height: 81 },
-  { src: '/instagram.png', hover: 'glitchcet', alt: 'Instagram', width: 470, height: 81 },
+  { src: '/email.png', hover: 'glitchclubcet@gmail.com', alt: 'Email',link:'glitchclubcet@gmail.com' },
+  { src: '/linkedin.png', hover: 'glitchcet', alt: 'LinkedIn',link:'https://www.linkedin.com/company/105924902' },
+  { src: '/discord.png', hover: 'discord.gg/opgRQ9gQTq', alt: 'Discord',link:'https://discord.gg/cpgRQ9gQTq' },
+  { src: '/instagram.png', hover: 'glitchcet', alt: 'Instagram',link:'https://www.instagram.com/glitchcet?igsh=MWFoNTBnd29zdnoyeQ==' },
 ];
 
 function Contacts() {
   return (
-    <div>
-      <div className="reveal-container mx-auto mt-5">
-        <img src="/bg-image.png" alt="Revealing" className="reveal-image w-32 h-32" />
+    <div className="w-full px-4 ">
+      {/* Top logo/image */}
+      <div className="reveal-container mx-auto mt-5 flex justify-center">
+        <img
+          src="/bg-image.png"
+          alt="Revealing"
+          className="reveal-image w-12 h-12 md:w-32 md:h-32"
+        />
       </div>
 
-      <div className="flex flex-col gap-10 mt-10 items-center">
-{socials.map(({ src, alt, width, height, hover }) => (
-  <div
-    key={alt}
-    className="cursor-pointer"
-    onClick={() => window.open('https://example.com', '_blank')}
-  >
-    {/* Social icon + arrow row */}
-    <div className="group flex items-center gap-72 relative">
-      {/* First image with hover animation */}
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className="hover-slide-disappear-up"
-      />
+      {/* Social Links */}
+      <div className="flex flex-col md:gap-2 gap-16 mt-10 items-center ">
+        {socials.map(({ src, alt, hover,link }) => (
+          <div
+  key={alt}
+  className="cursor-pointer w-full max-w-[1000px] flex flex-col items-center"
+  onClick={() => window.open(link, '_blank')}
+>
+  <div className="group flex flex-row items-center justify-between gap-4 md:gap-12 w-full">
+    {/* Icon */}
+    <img
+      src={src}
+      alt={alt}
+      className="hover-slide-disappear-up w-[60%] md:w-[471px] h-16"
+    />
 
-      {/* Arrow and hover reveal content */}
-      <div className="relative group cursor-pointer inline-block">
-        <img
-          src="/arrow_slant.png"
-          alt="Arrow"
-          className="w-full h-full object-contain hover:opacity-0"
-        />
-        <div className="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-10">
-          <p className="text-amber-100 text-sm whitespace-nowrap font-pixelify">{hover}</p>
-          <img src={yellow} alt="Extra" className="w-24 h-24" />
-        </div>
+    {/* Arrow and hover content */}
+    <div className="relative group cursor-pointer">
+      <img
+        src="/arrow_slant.png"
+        alt="Arrow"
+        className="w-10 h-10 md:w-12 md:h-12 hover:opacity-0"
+      />
+      <div className="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-4 md:gap-6">
+        <p className="text-amber-100 text-xs md:text-sm font-pixelify whitespace-nowrap">
+          {hover}
+        </p>
+        <img src={yellow} alt="Extra" className="w-16 h-16 md:w-14 md:h-14" />
       </div>
     </div>
-
-    {/* Line below each row */}
-    <div className="h-[1px] bg-pink-500  w-[calc(470px+72px+96px)]" />
   </div>
-))}
 
+<div className="pink-line" />
+
+</div>
+
+
+        ))}
       </div>
     </div>
   );
