@@ -34,7 +34,7 @@ function PreviousEvents() {
 
 
             <div className={`flex flex-row  mb-[70px]  `}>
-                <div className={`flex w-fit ${stopScrolling?"":"Scroll-Left"} `} > 
+                <div className="flex w-fit" > 
                     {events.map((event, index) => {
                         const { title, subTitle, description1, description2, day, month, id } = event;
                         const clicked = SelectedCardIds.includes(id);
