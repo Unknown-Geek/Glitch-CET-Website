@@ -3,22 +3,46 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import ScrollingText from "../Home/ScrollingText";
 import "./TeamCards.css";
+import webteam1 from "../../assets/Web Team/Karthik.png";
+import webteam2 from "../../assets/Web Team/Parikshit.png";
+import webteam3 from "../../assets/Web Team/Robin.png";
+import webteam4 from "../../assets/Web Team/Rohan.png";
+import webteam5 from "../../assets/Web Team/Shravan.png";
+import execom1 from  "../../assets/Team/TeamCard0.png"
+import execom2 from  "../../assets/Team/TeamCard1.png"
+import execom3 from  "../../assets/Team/TeamCard2.png"
+import execom4 from  "../../assets/Team/TeamCard3.png"
+import execom5 from  "../../assets/Team/TeamCard4.png"
+import execom6 from  "../../assets/Team/TeamCard5.png"
+import execom7 from  "../../assets/Team/TeamCard6.png"
+import execom8 from  "../../assets/Team/TeamCard7.png"
+import execom9 from  "../../assets/Team/TeamCard8.png"
+import execom10 from  "../../assets/Team/TeamCard9.png"
+import execom11 from  "../../assets/Team/TeamCard10.png"
+import execom12 from  "../../assets/Team/TeamCard11.png"
+import execom13 from  "../../assets/Team/TeamCard12.png"
+import execom14 from  "../../assets/Team/TeamCard13.png"
+import execom15 from  "../../assets/Team/TeamCard14.png"
+import execom16 from  "../../assets/Team/TeamCard15.png"
+import execom17 from  "../../assets/Team/TeamCard16.png"
+import execom18 from  "../../assets/Team/TeamCard17.png"
+import execom19 from  "../../assets/Team/TeamCard18.png"
 
 export default function Execom() {
     const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
     // Array of team card images
-    const teamCards = Array.from({ length: 19 }, (_, i) => `/assets/Team/TeamCard${i}.png`);
+    const teamCards = [execom1, execom2, execom3, execom4, execom5, execom6, execom7, execom8, execom9, execom10, execom11, execom12, execom13, execom14, execom15, execom16, execom17, execom18, execom19];
     // Duplicate the array to create seamless infinite scroll
     const duplicatedTeamCards = [...teamCards, ...teamCards];
 
     // Web Team members
     const webTeamMembers = [
-        { name: "Karthik", image: "/assets/Web Team/Karthik.png" },
-        { name: "Parikshit", image: "/assets/Web Team/Parikshit.png" },
-        { name: "Robin", image: "/assets/Web Team/Robin.png" },
-        { name: "Rohan", image: "/assets/Web Team/Rohan.png" },
-        { name: "Shravan", image: "/assets/Web Team/Shravan.png" }
+        { name: "Karthik", image: webteam1 },
+        { name: "Parikshit", image: webteam2 },
+        { name: "Robin", image: webteam3 },
+        { name: "Rohan", image: webteam4 },
+        { name: "Shravan", image: webteam5 }
     ];
 
     return (
