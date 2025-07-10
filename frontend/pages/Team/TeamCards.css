@@ -1,0 +1,75 @@
+/* Infinite Scrolling Cards Animation */
+@keyframes infiniteScroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        transform: translateX(-50%); 
+    }
+}
+
+.team-scroll-container {
+    animation: infiniteScroll 20s linear infinite;
+    will-change: transform;
+    display: flex;
+    gap: 1rem;
+}
+
+.team-scroll-container:hover {
+    animation-play-state: paused;
+}
+
+.team-card {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+}
+
+.team-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Wrapper to hide overflow */
+.team-scroll-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    background: #0D0E20;
+}
+
+/* Web Team Section Styles */
+.web-team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background: #0D0E20;
+}
+
+.web-team-card {
+    width: 100%;
+    
+    position: relative;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.web-team-card:hover {
+    transform: scale(1.05);
+}
+
+.web-team-card img {
+    width: 99%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+} 

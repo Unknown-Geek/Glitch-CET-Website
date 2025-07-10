@@ -4,36 +4,7 @@ function ScrollingText({ text }) {
     const [direction, setDirection] = useState('right');
     const lastScrollDirection = useRef(null);
     const touchStartY = useRef(null);
-    useEffect(() => {
-        const handleScroll = (e) => {
-            const currentDirection = e.deltaY > 0 ? 'down':'up';
-
-            if (lastScrollDirection.current && lastScrollDirection.current !== currentDirection) {
-                setDirection((prev) => (prev === 'left' ? 'right':'left'));
-            }
-            lastScrollDirection.current = currentDirection;
-        };
-
-        const handleTouchStart = (e) => {
-            touchStartY.current = e.touches[0].clientY;
-        };
-
-        const handleTouchMove = (e) => {
-            const currentY = e.touches[0].clientY;
-            const deltaY = touchStartY.current - currentY;
-            handleScroll({deltaY});
-        };
-
-        window.addEventListener('wheel', handleScroll);
-        window.addEventListener('touchstart', handleTouchStart);
-        window.addEventListener('touchmove', handleTouchMove);
-
-        return () => {
-            window.removeEventListener('wheel', handleScroll);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchmove', handleTouchMove);
-        };
-    }, []);
+   
 
     return (
         <div className="overflow-hidden border-t-7 border-b-7 border-[#D4D29C] h-[130px] sm:h-[150px] md:h-[180px] lg:h-[225px] flex items-center">

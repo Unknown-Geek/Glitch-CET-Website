@@ -11,6 +11,8 @@ import ScrollingText from "../pages/Home/ScrollingText.jsx";
 import Contacts from "../pages/Contacts/Contacts.jsx";
 import Upcoming from "../pages/Events/Upcoming.jsx";
 import PreviousEvents from "../pages/Events/PreviousEvents.jsx";
+import Execom from "../pages/Team/Execom.jsx";
+
 function App() {
   return (
     <>
@@ -55,7 +57,8 @@ function App() {
             element={
               <>
                 <Navbar />
-                <Upcoming />
+                <Execom />
+                
                 <ScrollingText text="TEAM" />
               </>
             }
