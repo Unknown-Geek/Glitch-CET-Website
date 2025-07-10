@@ -35,7 +35,7 @@ function Contacts() {
     <img
       src={src}
       alt={alt}
-      className="hover-slide-disappear-up w-[60%] md:w-[471px] h-16"
+      className="hover-slide-disappear-up  md:w-[471px] w-[300px] md:h-16 h-8"
     />
 
     {/* Arrow and hover content */}

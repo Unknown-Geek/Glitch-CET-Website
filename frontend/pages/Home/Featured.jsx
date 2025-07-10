@@ -30,7 +30,7 @@ function Featured() {
               <img src={image} alt={`Card image ${idx + 1}`} />
               <p className="pr-12 pl-13 pb-5 font-pixelify text-white uppercase ">{text}</p>
               
-              <button style={{ backgroundColor: '#F92672' }} className="ml-12 mt-5 self-start font-pixelify w-[145.15px] h-[38.02px] top-[291.3px] left-[2px] p-[8.01px] gap-[6.01px] rounded-[10.01px] absolute bg-hotPink text-black">
+              <button style={{ backgroundColor: '#F92672' }} className="ml-12 md:mt-5 mt-10 self-start font-pixelify w-[145.15px] h-[38.02px] top-[291.3px] left-[2px] p-[8.01px] gap-[6.01px] rounded-[10.01px] absolute bg-hotPink text-black">
                 CHECK IT OUT 
               </button>
 
