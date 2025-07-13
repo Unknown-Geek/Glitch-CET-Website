@@ -33,8 +33,8 @@ function PreviousEvents() {
             </h1>
 
 
-            <div className={`flex flex-row  mb-[70px]  `}>
-                <div className="flex w-fit" > 
+            <div className={`flex flex-row mb-[70px] `}>
+                <div className="flex w-fit " > 
                     {events.map((event, index) => {
                         const { title, subTitle, description1, description2, day, month, id } = event;
                         const clicked = SelectedCardIds.includes(id);
@@ -43,14 +43,13 @@ function PreviousEvents() {
                             : (clicked ? 15 : 50);
                         {/* Previous event card */ }
                         return (
-                            <div onClick={() => toggleCard(id)} className={`relative overflow-hidden z-10 border-[1px] rounded-[3px] flex flex-col items-center justify-center py-[5px] lg:py-[20px] cursor-pointer mx-[20px] ${clicked ? "w-[450px] lg:w-[800px] " : "w-[290px]  lg:w-[340px] "}  `}>
-
+                            <div onClick={() => toggleCard(id)} className={`relative overflow-x-hidden overflow-y-hidden z-10 border-[1px] rounded-[3px] flex flex-col items-center justify-center py-[5px] lg:py-[20px] cursor-pointer ${clicked ? "w-[360px] lg:w-[800px] mx-[3px] lg:mx-[10px] " : "w-[290px]  lg:w-[340px] mx-[20px] "}  `}>
 
                                 {/* background image */}
                                 <img className={`absolute z-0 pointer-events-none opacity-[0.2] brightness-[1.6] ${clicked ? "h-[205%] w-[125%] lg:w-[105%] " : "h-[95%] w-[110%] "} `} src="DotsBG.png" alt="" />
 
                                 {/* title */}
-                                <div className="flex flex-row items-center justify-center px-[10px] lg:px-[20px] ">
+                                <div className={`flex flex-row items-center justify-center ${clicked?"px-[4px] lg:px-[20px]":"px-[10px] lg:px-[20px]"} `}>
 
                                     <div className="mt-[10px]  flex flex-col gap-[3px] ">
                                         <div className="flex space-x-0.5 flex-col gap-[3px]">
@@ -64,17 +63,17 @@ function PreviousEvents() {
                                         </div>
 
                                     </div>
-                                    <span className={`leading-none px-[6px] ${clicked ? "text-[40px] lg:text-[70px] " : "text-[35px]"} `} style={{ fontFamily: "Neopixel" }}>{title}</span>
+                                    <span className={`leading-none px-[6px] ${clicked ? "text-[32px] lg:text-[70px] " : "text-[35px]"} `} style={{ fontFamily: "Neopixel" }}>{title}</span>
                                 </div>
-                                <span className={`text-center my-[20px] font-light ${clicked ? "text-2xl lg:text-3xl " : "text-xl "} `} style={{ fontFamily: "Neopixel" }}>{subTitle} </span>
+                                <span className={`text-center my-[20px] font-light ${clicked ? "text-[16px] lg:text-3xl " : "text-xl "} `} style={{ fontFamily: "Neopixel" }}>{subTitle} </span>
 
                                 {/* event image and description */}
-                                <div className="flex flex-row mt-[30px] lg:mt-[60px] justify-center items-center ">
-                                    <img className={`w-[170px] lg:w-[250px] px-[5px] lg:px-0  ${clicked ? "h-[50%] lg:h-[90%] " : ""} `} src='event.png' alt="event" />
+                                <div className={`flex flex-row mt-[30px] lg:mt-[60px] justify-center items-center `}>
+                                    <img className={`w-[150px] lg:w-[250px] lg:px-0  ${clicked ? "h-[50%] lg:h-[90%] ml-[6px] " : "px-[5px]"} `} src='event.png' alt="event" />
                                     {clicked && (
-                                        <div className="ml-[0px] lg:ml-[15px] ">
-                                            <span style={{ fontFamily: "Pixelify Sans" }} className="flex justify-center items-center w-[230px] lg:w-[370px] pl-[30px] text-[15px] lg:text-xl ">{description1}</span>
-                                            <span style={{ fontFamily: "Pixelify Sans" }} className="flex justify-center items-center w-[230px] lg:w-[370px] pl-[30px] text-[15px] lg:text-xl mt-[25px] ">{description2}</span>
+                                        <div className={`ml-[0px] lg:ml-[15px] ${clicked?"pr-[4px] ":""} `}>
+                                            <span style={{ fontFamily: "Pixelify Sans" }} className="flex justify-center items-center w-[200px] lg:w-[370px] pl-[25px] text-[13px] lg:text-xl ">{description1}</span>
+                                            <span style={{ fontFamily: "Pixelify Sans" }} className="flex justify-center items-center w-[200px] lg:w-[370px] pl-[25px] text-[13px] lg:text-xl mt-[25px] ">{description2}</span>
                                         </div>
                                     )}
                                 </div>
@@ -95,11 +94,11 @@ function PreviousEvents() {
                                     </div>
 
                                     {/* Date */}
-                                    <div className={`text-center mt-[5px] ${clicked ? "flex flex-row text-center px-[10px] " : ""} `}>
-                                        <span style={{ fontFamily: "Morton" }} className={` ${clicked ? "text-4xl lg:text-7xl mt-[15px] lg:mt-[0px] " : "text-6xl lg:text-7xl"} `}>{day}</span>
+                                    <div className={`text-center mt-[5px] ${clicked ? "flex flex-row text-center px-[5px] lg:px-[10px] " : ""} `}>
+                                        <span style={{ fontFamily: "Morton" }} className={` ${clicked ? "text-2xl lg:text-7xl mt-[20px] lg:mt-[0px] " : "text-6xl lg:text-7xl"} `}>{day}</span>
                                         <div className={` ${clicked ? "flex justify-center items-center ml-[8px] lg:ml-[16px] " : ""} `}>
-                                            <span style={{ fontFamily: "Morton" }} className={`text-2xl text-[#ED246D] px-[8px] ${clicked ? "text-3xl lg:text-5xl " : ""} `}>{month}</span>
-                                            <span style={{ fontFamily: "Morton" }} className={`text-2xl leading-none ${clicked ? "text-3xl lg:text-5xl ml-[6px] lg:ml-[12px] mr-[10px] " : ""} `}>{clicked ? "2025" : "25"} </span>
+                                            <span style={{ fontFamily: "Morton" }} className={`text-2xl text-[#ED246D] px-[8px] ${clicked ? "text-2xl lg:text-5xl " : ""} `}>{month}</span>
+                                            <span style={{ fontFamily: "Morton" }} className={`text-2xl leading-none ${clicked ? "text-2xl lg:text-5xl ml-[6px] lg:ml-[12px] mr-[10px] " : ""} `}>{clicked ? "2025" : "25"} </span>
                                         </div>
                                     </div>
 
