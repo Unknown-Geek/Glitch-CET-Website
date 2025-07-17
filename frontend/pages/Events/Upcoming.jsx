@@ -25,7 +25,7 @@ export default function Upcoming() {
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
                         backgroundImage: "url('/bgevents.svg')",
-                        mixBlendMode: "overlay",
+                        mixBlendMode: "screen",
                         opacity: 0.4,
                         filter: "contrast(0.8)"
                     }}
