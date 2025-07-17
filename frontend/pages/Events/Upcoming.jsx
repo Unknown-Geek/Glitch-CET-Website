@@ -26,7 +26,7 @@ export default function Upcoming() {
                     style={{
                         backgroundImage: "url('/bgevents.svg')",
                         mixBlendMode: "screen",
-                        opacity: 0.4,
+                        opacity: 0.1,
                         // filter: "contrast(0.8)"
                     }}
                 ></div>
