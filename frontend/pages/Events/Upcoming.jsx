@@ -27,7 +27,7 @@ export default function Upcoming() {
                         backgroundImage: "url('/bgevents.svg')",
                         mixBlendMode: "screen",
                         opacity: 0.4,
-                        filter: "contrast(0.8)"
+                        // filter: "contrast(0.8)"
                     }}
                 ></div>
                 <div className="relative text-center space-y-4 z-10 max-w-4xl mx-auto px-4">
