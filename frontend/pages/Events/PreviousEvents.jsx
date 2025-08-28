@@ -34,7 +34,7 @@ function PreviousEvents() {
 
 
             <div className={`flex flex-row mb-[70px] `}>
-                <div className="flex w-full overflow-x-hidden" > 
+                <div className="flex w-fit " > 
                     {events.map((event, index) => {
                         const { title, subTitle, description1, description2, day, month, id } = event;
                         const clicked = SelectedCardIds.includes(id);
@@ -51,7 +51,7 @@ function PreviousEvents() {
                                 {/* title */}
                                 <div className={`flex flex-row items-center justify-center ${clicked?"px-[4px] lg:px-[20px]":"px-[10px] lg:px-[20px]"} `}>
 
-                                    <div className="mt-[10px]  flex flex-col gap-[3px] ">
+                                    <div className="mt-[10px] flex flex-col gap-[3px] ">
                                         <div className="flex space-x-0.5 flex-col gap-[3px]">
                                             {Array.from({ length: isMobile ? "8" : "12" }, (_, i) => i).map((_, index) => (
                                                 <div
