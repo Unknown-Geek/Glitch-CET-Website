@@ -26,7 +26,7 @@ function App() {
                 <Start />
                 <About />
                 <ScrollingText text="Glitch" />
-                <Featured />   
+                <Cards/>   
                 <ScrollingText text="Glitch" />            
               </>
             }
