@@ -33,7 +33,7 @@ function PreviousEvents() {
             </h1>
 
 
-            <div className={`flex flex-row mb-[70px] `}>
+            <div className={`flex flex-row mb-[70px] overflow-x-scroll overflow-y-hidden } `}>
                 <div className="flex w-fit " > 
                     {events.map((event, index) => {
                         const { title, subTitle, description1, description2, day, month, id } = event;
