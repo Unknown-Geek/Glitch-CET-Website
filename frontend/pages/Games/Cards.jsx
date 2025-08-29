@@ -31,16 +31,38 @@ function Featured() {
     <div className="bg-black p-5 max-w-[1600px] mx-auto">
       <img className="pb-5 pt-5 md:ml-5" src={games} alt="Featured" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:ml-5">
+      {/* Wrapper for scrolling on mobile */}
+      <div
+        className="
+          flex gap-6 overflow-x-auto sm:grid sm:grid-cols-2 md:grid-cols-3
+          md:ml-5
+        "
+      >
         {cardsData.map(({ image, button, square, text, number }, idx) => (
-          <div key={idx} className="w-full max-w-[480.49px] h-[480px] border border-white">
+          <div
+            key={idx}
+            className="
+              min-w-[300px] sm:min-w-0
+              w-full max-w-[480.49px] h-[480px] border border-white shrink-0
+            "
+          >
             <div className="pt-8 flex flex-col items-center justify-start h-full relative">
               <img src={image} alt={`Card image ${idx + 1}`} />
-              <p className="pr-12 pl-13 pb-5 font-pixelify text-white uppercase ">{text}</p>
-              <button style={{ backgroundColor: '#F92672' }} className="ml-12 mt-5 self-start font-pixelify w-[145.15px] h-[38.02px] top-[291.3px] left-[2px] p-[8.01px] gap-[6.01px] rounded-[10.01px] absolute bg-hotPink text-black hover:text-white">
-                CHECK IT OUT 
+              
+              <p className="pr-12 pl-13 pb-5 font-pixelify text-white uppercase">
+                {text}
+              </p>
+              <div className='flex flex-row md:gap-42 gap-12 mt-8'>
+              <p className="md:mt-6 mt-8 pt-5 font-pixelify text-white">
+                {number}
+              </p>
+              <button
+                style={{ backgroundColor: '#F92672' }}
+                className="ml-12 mt-12 md:mr-12 mr-2 self-start font-pixelify w-28 h-8 rounded bg-hotPink text-black hover:text-white"
+              >
+                CHECK IT OUT
               </button>
-              <p className="mt-10 self-start pl-12 pt-5 font-pixelify text-white">{number}</p>
+              </div>
               <img
                 className="absolute right-15 top-3/4 transform -translate-y-1/2"
                 src={square}
@@ -53,5 +75,6 @@ function Featured() {
     </div>
   );
 }
+
 
 export default Featured;
