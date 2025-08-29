@@ -43,7 +43,7 @@ function PreviousEvents() {
                             : (clicked ? 15 : 50);
                         {/* Previous event card */ }
                         return (
-                            <div onClick={() => toggleCard(id)} className={`relative overflow-x-hidden overflow-y-hidden z-10 border-[1px] rounded-[3px] flex flex-col items-center justify-center py-[5px] lg:py-[20px] cursor-pointer ${clicked ? "w-[360px] lg:w-[800px] mx-[3px] lg:mx-[10px] " : "w-[290px]  lg:w-[340px] mx-[20px] "}  `}>
+                            <div onClick={() => toggleCard(id)} className={`relative overflow-x-hidden overflow-y-hidden z-10 border-[1px] rounded-[3px] flex flex-col items-center justify-center py-[5px] lg:py-[20px] cursor-pointer ${clicked ? "w-[340px] lg:w-[800px] mx-[3px] lg:mx-[10px] " : "w-[290px]  lg:w-[340px] mx-[20px] "}  `}>
 
                                 {/* background image */}
                                 <img className={`absolute z-0 pointer-events-none opacity-[0.2] brightness-[1.6] ${clicked ? "h-[205%] w-[125%] lg:w-[105%] " : "h-[95%] w-[110%] "} `} src="DotsBG.png" alt="" />
@@ -69,7 +69,7 @@ function PreviousEvents() {
 
                                 {/* event image and description */}
                                 <div className={`flex flex-row mt-[30px] lg:mt-[60px] justify-center items-center `}>
-                                    <img className={`w-[150px] lg:w-[250px] lg:px-0  ${clicked ? "h-[50%] lg:h-[90%] ml-[6px] " : "px-[5px]"} `} src='event.png' alt="event" />
+                                    <img className={`w-[150px] lg:w-[250px] lg:px-0  ${clicked ? "h-[50%] lg:h-[90%] ml-[10px] " : "px-[5px]"} `} src='event.png' alt="event" />
                                     {clicked && (
                                         <div className={`ml-[0px] lg:ml-[15px] ${clicked?"pr-[4px] ":""} `}>
                                             <span style={{ fontFamily: "Pixelify Sans" }} className="flex justify-center items-center w-[200px] lg:w-[370px] pl-[25px] text-[13px] lg:text-xl ">{description1}</span>
