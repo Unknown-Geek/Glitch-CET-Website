@@ -12,6 +12,7 @@ import Contacts from "../pages/Contacts/Contacts.jsx";
 import Upcoming from "../pages/Events/Upcoming.jsx";
 import PreviousEvents from "../pages/Events/PreviousEvents.jsx";
 import Execom from "../pages/Team/Execom.jsx";
+import GameCard from "../pages/Games/GameCard.jsx";
 
 function App() {
   return (
@@ -26,8 +27,8 @@ function App() {
                 <Start />
                 <About />
                 <ScrollingText text="Glitch" />
-                <Cards/>   
-                <ScrollingText text="Glitch" />            
+                <Cards />
+                <ScrollingText text="Glitch" />
               </>
             }
           />
@@ -37,18 +38,28 @@ function App() {
             element={
               <>
                 <Navbar />
-                <ScrollingText text="Games"/>
-                <Cards />
+                <div className="relative w-full h-full"> 
+                  <div className="absolute top-120 w-full z-10"> 
+                    <ScrollingText text="Games" />
+                  </div>
+                  <div className="absolute top-10 w-full z-0"> 
+                    <GameCard />
+                  </div>
+                  <div className="top-150 absolute mt-[150px]"> 
+                    <Cards />
+                  </div>
+                </div>
               </>
             }
           />
+
           <Route
             path="/events"
             element={
               <>
                 <Navbar />
                 <Upcoming />
-                <PreviousEvents/>
+                <PreviousEvents />
               </>
             }
           />
@@ -58,7 +69,6 @@ function App() {
               <>
                 <Navbar />
                 <Execom />
-                
                 <ScrollingText text="TEAM" />
               </>
             }
@@ -71,7 +81,7 @@ function App() {
                 <Contacts />
               </>
             }
-          />  
+          />
         </Routes>
       </BrowserRouter>
     </>
