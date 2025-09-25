@@ -57,8 +57,6 @@ function Contacts() {
 <div className="pink-line" />
 
 </div>
-
-
         ))}
       </div>
     </div>
