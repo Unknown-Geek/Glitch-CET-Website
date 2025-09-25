@@ -39,13 +39,13 @@ function App() {
               <>
                 <Navbar />
                 <div className="relative w-full h-full"> 
-                  <div className="absolute top-120 w-full z-10"> 
+                  <div className="absolute top-95 lg:top-130 w-full z-10"> 
                     <ScrollingText text="Games" />
                   </div>
                   <div className="absolute top-10 w-full z-0"> 
                     <GameCard />
                   </div>
-                  <div className="top-150 absolute mt-[150px]"> 
+                  <div className="top-110 lg:top-160 absolute mt-[150px]"> 
                     <Cards />
                   </div>
                 </div>
