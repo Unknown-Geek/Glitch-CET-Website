@@ -46,8 +46,8 @@ function Featured() {
               w-full max-w-[480.49px] h-[480px] border border-white shrink-0
             "
           >
-            <div className="pt-8 flex flex-col items-center justify-start h-full relative">
-              <img src={image} alt={`Card image ${idx + 1}`} />
+            <div className="pt-8 flex flex-col items-center justify-start h-full relative ">
+              <img className='md:w-[400px] w-[280px]' src={image} alt={`Card image ${idx + 1}`} />
               
               <p className="pr-12 pl-13 pb-5 font-pixelify text-white uppercase">
                 {text}
@@ -64,7 +64,7 @@ function Featured() {
               </button>
               </div>
               <img
-                className="absolute right-15 top-3/4 transform -translate-y-1/2"
+                className="absolute right-15 md:top-3/4 top-14/21 transform -translate-y-1/2"
                 src={square}
                 alt={`Square ${idx + 1}`}
               />
