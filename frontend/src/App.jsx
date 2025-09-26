@@ -47,7 +47,7 @@ function App() {
         <div className="absolute top-10 w-full z-0"> 
           <GameCard />
         </div>
-        <div className="absolute top-110 lg:top-160 mt-[150px]"> 
+        <div className="absolute top-110  lg:top-160 mt-[150px]"> 
           <Cards />
         </div>
       </div>
