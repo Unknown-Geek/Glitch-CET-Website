@@ -68,6 +68,7 @@ function GameCard() {
         });
 
     return (
+        
         <div className="flex flex-col justify-center items-center mt-[20px] w-full overflow-hidden">
             {/* Mobile Arrows */}
             {isMobileLayout && (

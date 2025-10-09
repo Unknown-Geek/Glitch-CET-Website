@@ -44,7 +44,7 @@ function App() {
         <div className="absolute top-95 lg:top-130 w-full z-10"> 
           <ScrollingText text="Games" />
         </div>
-        <div className="absolute top-10 w-full z-0"> 
+        <div className="absolute top-10 w-screen mx-auto z-0 "> 
           <GameCard />
         </div>
         <div className="absolute top-110  lg:top-160 mt-[150px]"> 

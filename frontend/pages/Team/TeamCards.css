@@ -4,18 +4,31 @@
         transform: translateX(0); 
     }
     100% { 
-        transform: translateX(-50%); 
+        transform: translateX(-33.333%); 
     }
 }
 
 .team-scroll-container {
-    animation: infiniteScroll 20s linear infinite;
+    animation: infiniteScroll 60s linear infinite;
     will-change: transform;
     display: flex;
     gap: 1rem;
 }
 
+/* Slower scroll on mobile for better visibility */
+@media (max-width: 768px) {
+    .team-scroll-container {
+        animation: infiniteScroll 80s linear infinite;
+        gap: 0.75rem;
+    }
+}
+
 .team-scroll-container:hover {
+    animation-play-state: paused;
+}
+
+/* Paused state for swipe control */
+.team-scroll-container.paused {
     animation-play-state: paused;
 }
 
@@ -25,6 +38,21 @@
     height: 400px;
     position: relative;
     transition: transform 0.3s ease-in-out;
+}
+
+/* Mobile responsive card sizing */
+@media (max-width: 768px) {
+    .team-card {
+        width: 220px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-card {
+        width: 180px;
+        height: 250px;
+    }
 }
 
 .team-card:hover {
@@ -44,6 +72,31 @@
     width: 100%;
     padding: 2rem 0;
     background: #0D0E20;
+}
+
+/* Mobile: Add touch-friendly padding */
+@media (max-width: 768px) {
+    .team-scroll-wrapper {
+        padding: 1.5rem 0;
+        -webkit-overflow-scrolling: touch;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    /* Allow touch scroll on mobile */
+    .team-scroll-container {
+        cursor: grab;
+        touch-action: pan-y pinch-zoom;
+    }
+    
+    .team-scroll-container:active {
+        cursor: grabbing;
+    }
+    
+    /* Visual feedback for paused state */
+    .team-scroll-container.paused {
+        opacity: 0.9;
+    }
 }
 
 /* Web Team Section Styles */
@@ -73,3 +126,102 @@
     object-fit: cover;
     border-radius: 20px;
 } 
+/* Flip-card grid for mobile */
+.flip-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.flip-card {
+  perspective: 1000px;
+  width: 150px;
+  height: 200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  background: rgba(237, 36, 109, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+/* Web Team Focus Carousel for Mobile */
+.web-focus-carousel {
+  overflow: visible !important;
+  padding: 2rem 1rem 3rem 1rem;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+
+.web-focus-carousel .keen-slider__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out, filter 0.4s ease-out;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  position: relative;
+}
+
+/* Center focused slide - higher z-index */
+.web-focus-carousel .keen-slider__slide.scale-100 {
+  z-index: 10;
+}
+
+/* Non-focused slides - lower z-index */
+.web-focus-carousel .keen-slider__slide.scale-75 {
+  z-index: 5;
+}
+
+.web-focus-carousel .keen-slider__slide img {
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.4s ease-out;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Non-focused slides styling */
+.web-focus-carousel .keen-slider__slide.scale-75 img {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure smooth blur transitions */
+.web-focus-carousel .keen-slider__slide.blur-sm {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
