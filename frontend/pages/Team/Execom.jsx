@@ -66,6 +66,8 @@ export default function Execom() {
       spacing: 16,
     },
     initial: 0,
+    drag: true,
+    rubberband: true,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
@@ -151,7 +153,7 @@ export default function Execom() {
                   className={`keen-slider__slide ${
                     currentSlide === index
                       ? "scale-100 opacity-100"
-                      : "scale-75 opacity-50 blur-sm"
+                      : "scale-75 opacity-60 blur-sm"
                   }`}
                 >
                   <img
