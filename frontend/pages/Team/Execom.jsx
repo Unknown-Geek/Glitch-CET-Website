@@ -164,9 +164,9 @@ export default function Execom() {
         {isMobile ? (
           // 🎯 Focus Carousel for Mobile
           <>
-            <p className="text-white/60 text-center text-sm mb-4 px-4">
+            {/* <p className="text-white/60 text-center text-sm mb-4 px-4">
               👈 Swipe to explore 👉
-            </p>
+            </p> */}
             <div ref={sliderRef} className="keen-slider web-focus-carousel">
               {webTeamMembers.map((member, index) => (
                 <div
@@ -210,6 +210,8 @@ export default function Execom() {
           </div>
         )}
       </div>
+
+      
     </div>
   );
 }
