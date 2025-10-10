@@ -54,7 +54,14 @@ export default function Execom() {
   const [execomRef] = useKeenSlider({
     loop: true,
     mode: "free-snap",
-    slides: { perView: 1.2, spacing: 15 },
+    slides: { 
+      perView: 1.5, 
+      spacing: 15,
+    },
+    range: {
+      align: false,
+    },
+    rtl: false,
   });
 
   // Web team focus carousel (mobile only)
@@ -62,12 +69,21 @@ export default function Execom() {
     loop: true,
     mode: "snap",
     slides: { 
-      perView: 1.4, 
-      spacing: 16,
+      perView: 1.4,
+      spacing: 15,
     },
+    range: {
+      align: false,
+    },
+    rtl: false,
+    renderMode: 'performance',
     initial: 0,
     drag: true,
     rubberband: true,
+    dragSpeed: 1,
+    animationEnded(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
@@ -112,17 +128,19 @@ export default function Execom() {
         </div>
 
         {isMobile ? (
-          <div ref={execomRef} className="keen-slider">
-            {teamCards.map((cardSrc, index) => (
-              <div key={index} className="keen-slider__slide flex justify-center">
-                <img
-                  src={cardSrc}
-                  alt={`Team Member ${index + 1}`}
-                  loading="lazy"
-                  className="rounded-2xl w-72 h-auto shadow-lg"
-                />
-              </div>
-            ))}
+          <div className="execom-carousel-wrapper">
+            <div ref={execomRef} className="keen-slider execom-carousel">
+              {teamCards.map((cardSrc, index) => (
+                <div key={index} className="keen-slider__slide flex justify-center">
+                  <img
+                    src={cardSrc}
+                    alt={`Team Member ${index + 1}`}
+                    loading="lazy"
+                    className="rounded-2xl w-72 h-auto shadow-lg"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="team-scroll-container">
@@ -146,6 +164,9 @@ export default function Execom() {
         {isMobile ? (
           // 🎯 Focus Carousel for Mobile
           <>
+            <p className="text-white/60 text-center text-sm mb-4 px-4">
+              👈 Swipe to explore 👉
+            </p>
             <div ref={sliderRef} className="keen-slider web-focus-carousel">
               {webTeamMembers.map((member, index) => (
                 <div
