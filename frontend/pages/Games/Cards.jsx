@@ -1,29 +1,60 @@
-import React from 'react';
-import games from '../../public/games.png';
-import image1 from '../../public/image.png';
-import image2 from '../../public/image.png';
-import image3 from '../../public/image.png';
-import image4 from '../../public/image.png';
-import image5 from '../../public/image.png';
-import image6 from '../../public/image.png';
-import image7 from '../../public/image.png';
-import image8 from '../../public/image.png';
-import image9 from '../../public/image.png';
+import React, { useRef, useEffect } from 'react';
+
+import video1 from '../../assets/video1.mp4'
+import video2 from '../../assets/video2.mp4'
+import video3 from '../../assets/video3.mp4'
 
 import button from '../../public/button.png';
 import square from '../../public/Squares.png';
 
 const cardsData = [
-  { image: image1, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(01)" },
-  { image: image2, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(02)" },
-  { image: image3, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(03)" },
-  { image: image4, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(04)" },
-  { image: image5, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(05)" },
-  { image: image6, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(06)" },
-  { image: image7, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(07)" },
-  { image: image8, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(08)" },
-  { image: image9, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(09)" },
+  { video: video1, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(01)" },
+  { video: video2, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(02)" },
+ 
+  { video: video3, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(03)" },
 ];
+
+function VideoCard({ video }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoElement?.play();
+          } else {
+            videoElement?.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (videoElement) {
+      observer.observe(videoElement);
+    }
+
+    return () => {
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className='w-full max-w-[280px] md:max-w-[400px] mx-auto mb-3 md:mb-6 rounded-lg'
+      src={video}
+      loop
+      muted
+      playsInline
+      preload="metadata"
+    />
+  );
+}
 
 
 function Featured() {
@@ -49,7 +80,7 @@ function Featured() {
             WebkitScrollbar: { display: 'none' }
           }}
         >
-        {cardsData.map(({ image, square, text, number }, idx) => (
+        {cardsData.map((card, idx) => (
           <div
             key={idx}
             className="
@@ -59,19 +90,23 @@ function Featured() {
             "
           >
             <div className="pt-4 md:pt-6 px-3 md:px-6 flex flex-col h-full relative pb-8">
-              <img 
-                className='w-full max-w-[280px] md:max-w-[400px] mx-auto mb-3 md:mb-6' 
-                src={image} 
-                alt={`Card image ${idx + 1}`} 
-              />
+              {card.video ? (
+                <VideoCard video={card.video} />
+              ) : (
+                <img 
+                  className='w-full max-w-[280px] md:max-w-[400px] mx-auto mb-3 md:mb-6' 
+                  src={card.image} 
+                  alt={`Card ${idx + 1}`} 
+                />
+              )}
               
               <p className="font-pixelify text-white uppercase text-xs md:text-sm leading-relaxed mb-4 md:mb-6 text-left">
-                {text}
+                {card.text}
               </p>
               
               <div className='flex flex-row justify-between items-center mt-auto mb-2 md:mb-4 relative z-10'>
                 <p className="font-pixelify text-white text-sm md:text-base">
-                  {number}
+                  {card.number}
                 </p>
                 <button
                   style={{ backgroundColor: '#F92672' }}
@@ -83,7 +118,7 @@ function Featured() {
               
               <img
                 className="absolute bottom-2 right-2 md:bottom-4 md:right-4 w-3 h-3 md:w-6 md:h-6 z-0"
-                src={square}
+                src={card.square}
                 alt={`Square ${idx + 1}`}
               />
             </div>
