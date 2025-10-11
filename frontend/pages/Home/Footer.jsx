@@ -9,8 +9,8 @@ export default function GlitchBanner() {
   ];
 
   return (
-    <div className=" flex-col gap-2 ml-6 mr-6 ">
-        <div className="md:mt-12 mt-4  md:ml-12 flex flex-row md:gap-64 font-pixelify ">
+    <div className=" flex-col gap-2 mx-auto md:ml-10 ">
+        <div className="md:mt-12 mt-4  md:ml-12 flex flex-row md:gap-64 font-pixelify md:px-34 ">
             <p className="hidden md:flex" >
                 2025 GLITCH CET • ALL RIGHTS RESERVED
             </p>
@@ -31,7 +31,7 @@ export default function GlitchBanner() {
                 ))}
             </p>
         </div>
-        <img className="md:w-[1480px] md:h-[220px] md:ml-12 mb-10 " alt="Glitch Logo"
+        <img className="md:w-[1480px] md:h-[220px] mx-auto mb-10 " alt="Glitch Logo"
         src={image}
         />
     </div>

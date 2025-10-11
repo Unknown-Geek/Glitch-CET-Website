@@ -27,8 +27,7 @@ function App() {
                 <Navbar />
                 <Start />
                 <About />
-                <ScrollingText text="Glitch" />
-                <Cards />
+              
                 <ScrollingText text="Glitch" />
                 <Footer />
               </>
@@ -40,20 +39,18 @@ function App() {
   element={
     <>
       <Navbar />
-      <div className="relative w-full h-full"> 
-        <div className="absolute top-95 lg:top-130 w-full z-10"> 
-          <ScrollingText text="Games" />
-        </div>
-        <div className="absolute top-10 w-screen mx-auto z-0 "> 
+      <div className="w-full min-h-screen"> 
+        <div className="w-full"> 
           <GameCard />
         </div>
-        <div className="absolute top-110  lg:top-160 mt-[150px]"> 
+        <div className="w-full "> 
+          <ScrollingText text="Games" />
+        </div>
+        <div className="w-full mt-12"> 
           <Cards />
         </div>
       </div>
-
-      {/* Footer should sit outside the relative container */}
-      
+      <Footer />
     </>
   }
 />

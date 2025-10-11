@@ -70,6 +70,14 @@ function GameCard() {
     return (
         
         <div className="flex flex-col justify-center items-center mt-[20px] w-full overflow-hidden">
+            {/* Featured Games Title */}
+            <h1 
+                className="mt-4 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center mb-8 md:mb-12"
+                style={{ fontFamily: "Morton" }}
+            >
+                FEATURED GAMES
+            </h1>
+
             {/* Mobile Arrows */}
             {isMobileLayout && (
                 <div className="flex justify-center gap-4 mb-4">
