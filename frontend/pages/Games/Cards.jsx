@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-
+import React, { useRef, useEffect, useState } from 'react';
+import { X } from 'lucide-react';
 import video1 from '../../assets/video1.mp4'
 import video2 from '../../assets/video2.mp4'
 import video3 from '../../assets/video3.mp4'
@@ -58,6 +58,16 @@ function VideoCard({ video }) {
 
 
 function Featured() {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const openVideoPlayer = (video) => {
+    setSelectedVideo(video);
+  };
+
+  const closeVideoPlayer = () => {
+    setSelectedVideo(null);
+  };
+
   return (
     <div className="bg-black overflow-x-hidden">
       <div className="p-4 md:p-10 mx-auto">
@@ -109,6 +119,7 @@ function Featured() {
                   {card.number}
                 </p>
                 <button
+                  onClick={() => card.video && openVideoPlayer(card.video)}
                   style={{ backgroundColor: '#F92672' }}
                   className="font-pixelify px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded text-black hover:text-white transition-colors duration-200"
                 >
@@ -126,6 +137,31 @@ function Featured() {
         ))}
       </div>
       </div>
+
+      {/* Video Player Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-5xl">
+            {/* Close Button */}
+            <button
+              onClick={closeVideoPlayer}
+              className="absolute -top-12 right-0 flex items-center justify-center w-10 h-10 rounded-lg border-2 border-[#ED246D] bg-[#1A1A2E] hover:bg-[#ED246D] transition-all duration-300 text-white"
+              aria-label="Close video player"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Video Player */}
+            <video
+              src={selectedVideo}
+              controls
+              autoPlay
+              className="w-full rounded-lg shadow-2xl border-2 border-[#ED246D]"
+              controlsList="nodownload"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
