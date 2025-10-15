@@ -75,7 +75,7 @@ function GameCard() {
                 className="mt-4 md:mt-10 text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center mb-8 md:mb-12"
                 style={{ fontFamily: "Morton" }}
             >
-                FEATURED GAMES
+                FEATURED <span className="text-[#ED246D]">GAMES</span>
             </h1>
 
             {/* Mobile Arrows */}
