@@ -4,7 +4,7 @@ import video1 from '../../assets/video1.mp4'
 import video2 from '../../assets/video2.mp4'
 import video3 from '../../assets/video3.mp4'
 import video4 from '../../assets/video4.mp4'
-import video5 from '../../assets/video5.mp4'
+//import video5 from '../../assets/video5.mp4'
 import button from '../../public/button.png';
 import square from '../../public/Squares.png';
 
@@ -14,7 +14,7 @@ const cardsData = [
  
   { video: video3, button: button, square: square, text: "horror survival game with transformed anomalies chasing you.", number: "(03)" },
   { video: video4, button: button, square: square, text: "Explore a dark dungeon as a lone hero in this top-down, pixel-art adventure game. You'll need to navigate dimly lit corridors, solve puzzles, and avoid danger as you attempt to escape the confines of the mysterious maze.", number: "(04)" },
-  { video: video5, button: button, square: square, text: "2d platformer based on bubble teleportation", number: "(05)" },
+  //{ video: video5, button: button, square: square, text: "2d platformer based on bubble teleportation", number: "(05)" },
 ];
 
 function VideoCard({ video }) {
