@@ -3,15 +3,18 @@ import { X } from 'lucide-react';
 import video1 from '../../assets/video1.mp4'
 import video2 from '../../assets/video2.mp4'
 import video3 from '../../assets/video3.mp4'
-
+import video4 from '../../assets/video4.mp4'
+import video5 from '../../assets/video5.mp4'
 import button from '../../public/button.png';
 import square from '../../public/Squares.png';
 
 const cardsData = [
-  { video: video1, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(01)" },
-  { video: video2, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(02)" },
+  { video: video1, button: button, square: square, text: "A 2D top-down puzzle-adventure game where you are a student trapped inside a corrupted reality. Navigate the glitched simulation of your college, solve puzzles using a command-line interface, and reboot the system before you're deleted, forever.", number: "(01)" },
+  { video: video2, button: button, square: square, text: "Introducing Palli-Pult: Once upon a time, in a faraway college canteen, a peculiar palli tumbled into a pot of sambar. The result? Six days of holidays and one epic strike! Inspired by this legendary mishap, we present Palli-Pult. Your goal: launch pallis into sambar and other objects to score 15 points within the time limit. Only then can you unlock even more holidays!", number: "(02)" },
  
-  { video: video3, button: button, square: square, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam urna. Ut sit amet augue sem. Duis quis varius ante. Nullam ac accumsan tellus. ", number: "(03)" },
+  { video: video3, button: button, square: square, text: "horror survival game with transformed anomalies chasing you.", number: "(03)" },
+  { video: video4, button: button, square: square, text: "Explore a dark dungeon as a lone hero in this top-down, pixel-art adventure game. You'll need to navigate dimly lit corridors, solve puzzles, and avoid danger as you attempt to escape the confines of the mysterious maze.", number: "(04)" },
+  { video: video5, button: button, square: square, text: "2d platformer based on bubble teleportation", number: "(05)" },
 ];
 
 function VideoCard({ video }) {
@@ -70,7 +73,7 @@ function Featured() {
 
   return (
     <div className="bg-black overflow-x-hidden">
-      <div className="p-4 md:p-10 mx-auto">
+      <div className="p-4 md:p-10 mx-auto 0">
         <h1
           className="text-3xl md:text-6xl font-normal  mb-4 "
           style={{ fontFamily: "Morton" }}
@@ -81,8 +84,9 @@ function Featured() {
         {/* Wrapper for scrolling on mobile */}
         <div
           className="
+          md:mt-20
             flex gap-3 max-w-screen md:gap-6 overflow-x-scroll sm:grid sm:grid-cols-2 lg:grid-cols-3
-            md:ml-5 pb-4 -ml-4 pl-4 md:pl-0 
+            md:ml-5 pb-4 -ml-4 pl-4 md:pl-0 md:space-y-8
           "
           style={{ 
             scrollbarWidth: 'none', 
@@ -95,7 +99,7 @@ function Featured() {
             key={idx}
             className="
               min-w-[280px] max-w-[320px] sm:min-w-0 sm:max-w-[480px]
-              w-[280px] sm:w-full h-[420px] md:h-[500px] border border-white shrink-0
+              w-[280px] sm:w-full h-[420px] md:h-[620px] border border-white shrink-0
               flex flex-col bg-black
             "
           >
@@ -110,7 +114,7 @@ function Featured() {
                 />
               )}
               
-              <p className="font-pixelify text-white uppercase text-xs md:text-sm leading-relaxed mb-4 md:mb-6 text-left">
+              <p className="font-pixelify text-white uppercase text-xs md:text-sm leading-relaxed mb-4 md:mb-6 text-left overflow-y-auto">
                 {card.text}
               </p>
               
