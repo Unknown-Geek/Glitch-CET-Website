@@ -2,6 +2,19 @@ import React, { useState } from 'react'
 import ScrollingText from '../Home/ScrollingText';
 import { useMediaQuery } from 'react-responsive';
 import "./Previous.css";
+import gd from "../../public/basics_of_gd.jpg";
+import treasure from "../../public/treasure.jpg";
+import jam from "../../public/game_jam.jpg";
+import gameon from "../../public/game_on.jpg";
+import scratch from "../../public/scratch.jpg";
+import wix from "../../public/wix.jpg";
+import pressf from "../../public/pressf.jpg";
+import arena from "../../public/game_arena.jpg";
+import ctrl from "../../public/ctrl_create (2).jpg";
+import efootball from "../../public/efootball.jpg";
+import figma from "../../public/figma.jpg";
+import blender from "../../public/blender.jpg";
+import orientation from "../../public/orientation.jpg";
 
 function PreviousEvents() {
     const [SelectedCardIds, setSelectedCardIds] = useState([]);
@@ -12,15 +25,140 @@ function PreviousEvents() {
             prev.includes(id) ? prev.filter(cardId => cardId !== id) : [...prev, id]
         );
     };
+const events = [
+    { 
+        id: 1, 
+        day: "28", 
+        month: "MAR", 
+        title: "Basics of game development workshop",
+        subTitle: "Game dev basics workshop held with industry experts from KarmaPlay.",
+        description1: "Game dev basics workshop held with industry experts from KarmaPlay.",
+        description2: "Game dev basics workshop held with industry experts from KarmaPlay.",
+        image: gd
+    },
+    { 
+        id: 2, 
+        day: "02", 
+        month: "MAR", 
+        title: "Treasure hunt",
+        subTitle: "A game-based treasure hunt with Tesla 25 where every clue was unlocked through play.",
+        description1: "A game-based treasure hunt with Tesla 25 where every clue was unlocked through play.",
+        description2: "A game-based treasure hunt with Tesla 25 where every clue was unlocked through play.",
+        image: treasure
+    },
+    {   
+        id: 3, 
+        day: "15", 
+        month: "MAR", 
+        title: "Game jam",
+        subTitle: "An online game jam with DotSlash’25 where teams built games within a time limit.",
+        description1: "An online game jam with DotSlash’25 where teams built games within a time limit.",
+        description2: "An online game jam with DotSlash’25 where teams built games within a time limit.",
+        image: jam
+    },
+    { 
+        id: 4, 
+        day: "20", 
+        month: "MAR", 
+        title: "Game on",
+        subTitle: "A hands-on Unity workshop with DotSlash’25 for beginners in game dev.",
+        description1: "A hands-on Unity workshop with DotSlash’25 for beginners in game dev.",
+        description2: "A hands-on Unity workshop with DotSlash’25 for beginners in game dev.",
+        image: gameon
+    },
+    { 
+        id: 5, 
+        day: "10", 
+        month: "APR", 
+        title: "Scratch masters workshop",
+        subTitle: "A beginner-friendly Scratch workshop for kids hosted with DotSlash’25.",
+        description1: "A beginner-friendly Scratch workshop for kids hosted with DotSlash’25.",
+        description2: "A beginner-friendly Scratch workshop for kids hosted with DotSlash’25.",
+        image: scratch
+    },
+    { 
+        id: 6, 
+        day: "18", 
+        month: "APR", 
+        title: "Wix workshop",
+        subTitle: "A Wix workshop for school students with DotSlash’25.",
+        description1: "A Wix workshop for school students with DotSlash’25.",
+        description2: "A Wix workshop for school students with DotSlash’25.",
+        image: wix
+    },
+    { 
+        id: 7, 
+        day: "22", 
+        month: "APR", 
+        title: "Press F to Start",
+        subTitle: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
+        description1: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
+        description2: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
+        image: pressf
+    },
+    { 
+        id: 8, 
+        day: "01", 
+        month: "MAY", 
+        title: "Game Arena",
+        subTitle: "An interactive gaming session conducted with CodeRecet.",
+        description1: "An interactive gaming session conducted with CodeRecet.",
+        description2: "An interactive gaming session conducted with CodeRecet.",
+        image: arena
+    },
+    { 
+        id: 9, 
+        day: "05", 
+        month: "MAY", 
+        title: "Ctrl +Create",
+        subTitle: "A 30 day game development challenge where you create games and compete with each other.",
+        description1: "A 30 day game development challenge where you create games and compete with each other.",
+        description2: "A 30 day game development challenge where you create games and compete with each other.",
+        image: ctrl
+    },
+    { 
+        id: 10, 
+        day: "09", 
+        month: "MAY", 
+        title: "E-Football",
+        subTitle: "E-Football: A competitive E-Football tournament for gaming enthusiasts.",
+        description1: "E-Football: A competitive E-Football tournament for gaming enthusiasts.",
+        description2: "E-Football: A competitive E-Football tournament for gaming enthusiasts.",
+        image: efootball
+    },
+    { 
+        id: 11, 
+        day: "12", 
+        month: "MAY", 
+        title: "Figma Workshop",
+        subTitle: "A hands-on Figma workshop to learn UI/UX design basics.",
+        description1: "A hands-on Figma workshop to learn UI/UX design basics.",
+        description2: "A hands-on Figma workshop to learn UI/UX design basics.",
+        image: figma
+    },
+    { 
+        id: 12, 
+        day: "18", 
+        month: "MAY", 
+        title: "Blender Workshop",
+        subTitle: "A beginner-friendly Blender workshop for 3D modeling and animation.",
+        description1: "A beginner-friendly Blender workshop for 3D modeling and animation.",
+        description2: "A beginner-friendly Blender workshop for 3D modeling and animation.",
+        image: blender
+    },
+    { 
+        id: 13, 
+        day: "21", 
+        month: "MAY", 
+        title: "Orientation",
+        subTitle: "An orientation session for first-year students to learn our club’s activities, goals, and opportunities.",
+        description1: "An orientation session for first-year students to learn our club’s activities, goals, and opportunities.",
+        description2: "An orientation session for first-year students to learn our club’s activities, goals, and opportunities.",
+        image: orientation
+    }   
+];
 
-    const events = [
-        { id: 1, day: "28", month: "MAR", title: "GAME ON", subTitle: "A GAME DEVELOPMENT WORKSHOP USING UNITY", description1: "Glitch CET, in colloboration with DotsSlash CET conducted a hands-on worksop on game-developmentusing Unity led by Hani Muhamed and Janbaas Jamal.", description2: "The session introduced the participants to the basics of game design and development, offering practical insights into building games with Unity's powerful engine." },
-        { id: 2, day: "02", month: "MAR", title: "SCRATCH MASTER", subTitle: "SCRATCH PROGRAMMING WORKSHOP", description1: "As part of the DotSlash For Juniors initiative, Glitch CET, in collaboration with DotSlash CET, conducted Scratch Masters,", description2: "a hands-on workshop exclusively for school students. Led by Abhinav KP and Abhiram G, the session introduced young minds to the basics of Scratch and game development, sparking creativity through code." },
-        { id: 3, day: "15", month: "MAR", title: "WIX WORKSHOP", subTitle: "WEB DESIGN FOR SCHOOL CHILDREN", description1: "Glitch CET, in collaboration with DotSlash CET, hosted a hands-on Wix Workshop as part of the DotSlash For Juniors initiative. Led by Haripriya P H and Joanna Susan.", description2: "The session introduced school students to the world of web design, guiding them through building and launching their own websites." },
-        { id: 4, day: "20", month: "MAR", title: "BASICS OF GAME DEVELOPMENT", subTitle: "WORKSHOP WITH KARMAPLAY", description1: "Glitch CET, in collaboration with KarmaPlay, hosted an engaging workshop introducing the Fundamentals of game development.", description2: "The session featured insightful talks by industry professionals - Ajmal Khan (Game Artist), Suriya Kumar (Game Programmer), and Ajith Ram (Director) - who shared their real-world experiences and creative journeys." },
-        { id: 5, day: "28", month: "MAR", title: "GAME ON", subTitle: "A GAME DEVELOPMENT WORKSHOP USING UNITY", description1: "Glitch CET, in colloboration with DotsSlash CET conducted a hands-on worksop on game-developmentusing Unity led by Hani Muhamed and Janbaas Jamal.", description2: "The session introduced the participants to the basics of game design and development, offering practical insights into building games with Unity's powerful engine." },
-        { id: 6, day: "28", month: "MAR", title: "GAME ON", subTitle: "A GAME DEVELOPMENT WORKSHOP USING UNITY", description1: "Glitch CET, in colloboration with DotsSlash CET conducted a hands-on worksop on game-developmentusing Unity led by Hani Muhamed and Janbaas Jamal.", description2: "The session introduced the participants to the basics of game design and development, offering practical insights into building games with Unity's powerful engine." },
-    ];
+
 
     return (
         <div className="px-5 mb-[100px] ">
@@ -36,7 +174,7 @@ function PreviousEvents() {
             <div className={`flex flex-row mb-[70px] overflow-x-scroll overflow-y-hidden } `}>
                 <div className="flex w-fit " > 
                     {events.map((event, index) => {
-                        const { title, subTitle, description1, description2, day, month, id } = event;
+                        const { title, subTitle, description1, description2, day, month, id,image } = event;
                         const clicked = SelectedCardIds.includes(id);
                         const barCount = isMobile
                             ? (clicked ? 12 : 35)
@@ -69,7 +207,7 @@ function PreviousEvents() {
 
                                 {/* event image and description */}
                                 <div className={`flex flex-row mt-[30px] lg:mt-[60px] justify-center items-center `}>
-                                    <img className={`w-[150px] lg:w-[250px] lg:px-0  ${clicked ? "h-[50%] lg:h-[90%] ml-[10px] " : "px-[5px]"} `} src='event.png' alt="event" />
+                                    <img className={`w-[150px] lg:w-[250px] lg:px-0  ${clicked ? "h-[50%] lg:h-[90%] ml-[10px] " : "px-[5px]"} `} src={image} alt="event" />
                                     {clicked && (
                                         <div className={`ml-[0px] lg:ml-[15px] ${clicked?"pr-[4px] ":""} `}>
                                             <span style={{ fontFamily: "Pixelify Sans" }} className="flex justify-center items-center w-[200px] lg:w-[370px] pl-[25px] text-[13px] lg:text-xl ">{description1}</span>
