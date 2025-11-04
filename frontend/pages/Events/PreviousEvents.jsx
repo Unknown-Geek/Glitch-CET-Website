@@ -26,10 +26,30 @@ function PreviousEvents() {
         );
     };
 const events = [
+      { 
+        id: 9, 
+        day: "25", 
+        month: "AUG-SEPT", 
+        title: "Ctrl +Create",
+        subTitle: "A 30 day game development challenge where you create games and compete with each other.",
+        description1: "A 30 day game development challenge where you create games and compete with each other.",
+        description2: "A 30 day game development challenge where you create games and compete with each other.",
+        image: ctrl
+    },
+     { 
+        id: 7, 
+        day: "15", 
+        month: "JULY", 
+        title: "Press F to Start",
+        subTitle: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
+        description1: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
+        description2: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
+        image: pressf
+    },
     { 
         id: 1, 
-        day: "28", 
-        month: "MAR", 
+        day: "26", 
+        month: "SEP", 
         title: "Basics of game development workshop",
         subTitle: "Game dev basics workshop held with industry experts from KarmaPlay.",
         description1: "Game dev basics workshop held with industry experts from KarmaPlay.",
@@ -38,7 +58,7 @@ const events = [
     },
     { 
         id: 2, 
-        day: "02", 
+        day: "04", 
         month: "MAR", 
         title: "Treasure hunt",
         subTitle: "A game-based treasure hunt with Tesla 25 where every clue was unlocked through play.",
@@ -68,8 +88,8 @@ const events = [
     },
     { 
         id: 5, 
-        day: "10", 
-        month: "APR", 
+        day: "27", 
+        month: "MAR", 
         title: "Scratch masters workshop",
         subTitle: "A beginner-friendly Scratch workshop for kids hosted with DotSlash’25.",
         description1: "A beginner-friendly Scratch workshop for kids hosted with DotSlash’25.",
@@ -78,48 +98,30 @@ const events = [
     },
     { 
         id: 6, 
-        day: "18", 
-        month: "APR", 
+        day: "27", 
+        month: "MAR", 
         title: "Wix workshop",
         subTitle: "A Wix workshop for school students with DotSlash’25.",
         description1: "A Wix workshop for school students with DotSlash’25.",
         description2: "A Wix workshop for school students with DotSlash’25.",
         image: wix
     },
-    { 
-        id: 7, 
-        day: "22", 
-        month: "APR", 
-        title: "Press F to Start",
-        subTitle: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
-        description1: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
-        description2: "A 5-day Unity workshop series where beginners can learn game development from scratch.",
-        image: pressf
-    },
+   
     { 
         id: 8, 
-        day: "01", 
-        month: "MAY", 
+        day: "06", 
+        month: "JUL", 
         title: "Game Arena",
         subTitle: "An interactive gaming session conducted with CodeRecet.",
         description1: "An interactive gaming session conducted with CodeRecet.",
         description2: "An interactive gaming session conducted with CodeRecet.",
         image: arena
     },
-    { 
-        id: 9, 
-        day: "05", 
-        month: "MAY", 
-        title: "Ctrl +Create",
-        subTitle: "A 30 day game development challenge where you create games and compete with each other.",
-        description1: "A 30 day game development challenge where you create games and compete with each other.",
-        description2: "A 30 day game development challenge where you create games and compete with each other.",
-        image: ctrl
-    },
+  
     { 
         id: 10, 
-        day: "09", 
-        month: "MAY", 
+        day: "03", 
+        month: "SEPT", 
         title: "E-Football",
         subTitle: "E-Football: A competitive E-Football tournament for gaming enthusiasts.",
         description1: "E-Football: A competitive E-Football tournament for gaming enthusiasts.",
@@ -128,8 +130,8 @@ const events = [
     },
     { 
         id: 11, 
-        day: "12", 
-        month: "MAY", 
+        day: "18", 
+        month: "SEP", 
         title: "Figma Workshop",
         subTitle: "A hands-on Figma workshop to learn UI/UX design basics.",
         description1: "A hands-on Figma workshop to learn UI/UX design basics.",
@@ -138,8 +140,8 @@ const events = [
     },
     { 
         id: 12, 
-        day: "18", 
-        month: "MAY", 
+        day: "25", 
+        month: "SEPT", 
         title: "Blender Workshop",
         subTitle: "A beginner-friendly Blender workshop for 3D modeling and animation.",
         description1: "A beginner-friendly Blender workshop for 3D modeling and animation.",
@@ -148,8 +150,8 @@ const events = [
     },
     { 
         id: 13, 
-        day: "21", 
-        month: "MAY", 
+        day: "15", 
+        month: "OCT", 
         title: "Orientation",
         subTitle: "An orientation session for first-year students to learn our club’s activities, goals, and opportunities.",
         description1: "An orientation session for first-year students to learn our club’s activities, goals, and opportunities.",
