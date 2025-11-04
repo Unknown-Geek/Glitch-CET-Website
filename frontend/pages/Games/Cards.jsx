@@ -4,16 +4,67 @@ import video1 from '../../assets/video1.mp4'
 import video2 from '../../assets/video2.mp4'
 import video3 from '../../assets/video3.mp4'
 import video4 from '../../assets/video4.mp4'
+import bortal from '../../assets/Bortal.mp4'
 //import video5 from '../../assets/video5.mp4'
 import button from '../../public/button.png';
 import square from '../../public/Squares.png';
 
 const cardsData = [
-  { video: video1, button: button, square: square, text: "A 2D top-down puzzle-adventure game where you are a student trapped inside a corrupted reality. Navigate the glitched simulation of your college, solve puzzles using a command-line interface, and reboot the system before you're deleted, forever.", number: "(01)" },
-  { video: video2, button: button, square: square, text: "Introducing Palli-Pult: Once upon a time, in a faraway college canteen, a peculiar palli tumbled into a pot of sambar. The result? Six days of holidays and one epic strike! Inspired by this legendary mishap, we present Palli-Pult. Your goal: launch pallis into sambar and other objects to score 15 points within the time limit. Only then can you unlock even more holidays!", number: "(02)" },
- 
-  { video: video3, button: button, square: square, text: "horror survival game with transformed anomalies chasing you.", number: "(03)" },
-  { video: video4, button: button, square: square, text: "Explore a dark dungeon as a lone hero in this top-down, pixel-art adventure game. You'll need to navigate dimly lit corridors, solve puzzles, and avoid danger as you attempt to escape the confines of the mysterious maze.", number: "(04)" },
+  // Place WINNERS first
+  {
+    video: bortal,
+    button: button,
+    square: square,
+    text:
+      "A puzzle platformer with bubbles as portals.Find the exit flag to finish the game.Made in Global Game Jam Kerala in 48hrs by Janbaas,Hani,Anthony and Govardhan .",
+    number: "(05)",
+        award: "GAME JAM KERALA — Winners",
+    creators:
+      "JANBAAS (CS 27), HANI (CS 27), ANTHONY , GOVARDHAN ",
+  },
+
+  {
+    video: video2,
+    button: button,
+    square: square,
+    text:
+      "Introducing Palli-Pult: Once upon a time, in a faraway college canteen, a peculiar palli tumbled into a pot of sambar. The result? Six days of holidays and one epic strike! Inspired by this legendary mishap, we present Palli-Pult. Your goal: launch pallis into sambar and other objects to score 15 points within the time limit. Only then can you unlock even more holidays!",
+    number: "(02)",
+     award: "Ctrl+ Create — Winners",
+    creators:
+      "AKHIL KRISHNA A PILLAI (EL 28), AMRITA REJI (EL 28), ASIYA BADUSHA KHAN S (EL 28)",
+  },
+    {
+    video: video1,
+    button: button,
+    square: square,
+    text:
+      "A 2D top-down puzzle-adventure game where you are a student trapped inside a corrupted reality. Navigate the glitched simulation of your college, solve puzzles using a command-line interface, and reboot the system before you're deleted, forever.",
+    number: "(01)",
+      award: "Ctrl+ Create — Runner Up",
+    creators: "Rohan Kishore (EL 29)",
+  },
+  {
+    video: video3,
+    button: button,
+    square: square,
+    text:
+      "A horror survival game where reality slowly twists and once-normal things become disturbing anomalies. These transformed creatures chase you relentlessly through dark, unpredictable environments. Your only goal is to survive long enough to escape before the world completely breaks.",
+    number: "(03)",
+    award: "Ctrl+ Create — 2nd Runner Up",
+    creators: "Johan Antony Davis (CSE 27)",
+  },
+  {
+    video: video4,
+    button: button,
+    square: square,
+    text:
+      "Explore a dark dungeon as a lone hero in this top-down, pixel-art adventure game. You'll need to navigate dimly lit corridors, solve puzzles, and avoid danger as you attempt to escape the confines of the mysterious maze.",
+    number: "(04)",
+    award: "Ctrl+ Create — Honourable Mention",
+    creators: "Saad Abdul Latheef (ECE 28)",
+  },
+
   //{ video: video5, button: button, square: square, text: "2d platformer based on bubble teleportation", number: "(05)" },
 ];
 
@@ -114,9 +165,24 @@ function Featured() {
                 />
               )}
               
-              <p className="font-pixelify text-white uppercase text-xs md:text-sm leading-relaxed mb-4 md:mb-6 text-left overflow-y-auto">
+              <p className="font-pixelify text-white uppercase text-xs md:text-sm leading-relaxed mb-2 md:mb-4 text-left overflow-y-auto">
                 {card.text}
               </p>
+
+              {(card.award || card.creators) && (
+                <div className="mb-4 md:mb-6 text-left">
+                  {card.award && (
+                    <p className="font-pixelify text-[#ED246D] uppercase text-[10px] md:text-xs leading-snug">
+                      {card.award}
+                    </p>
+                  )}
+                  {card.creators && (
+                    <p className="font-pixelify text-white/80 uppercase text-[10px] md:text-xs leading-snug">
+                      {card.creators}
+                    </p>
+                  )}
+                </div>
+              )}
               
               <div className='flex flex-row justify-between items-center mt-auto mb-2 md:mb-4 relative z-10'>
                 <p className="font-pixelify text-white text-sm md:text-base">
