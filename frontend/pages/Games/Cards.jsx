@@ -186,7 +186,7 @@ function Featured() {
               
               <div className='flex flex-row justify-between items-center mt-auto mb-2 md:mb-4 relative z-10'>
                 <p className="font-pixelify text-white text-sm md:text-base">
-                  {card.number}
+                  {`(${String(idx + 1).padStart(2, '0')})`}
                 </p>
                 <button
                   onClick={() => card.video && openVideoPlayer(card.video)}

@@ -8,11 +8,27 @@ export default function Upcoming() {
     const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
     const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
+    // Placeholder: no upcoming events
     const events = [
-        { id: 1, day: "28", month: "JUN", time: "4:00 PM", title: "WIX WORKSHOP", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam velit. Ut sit amet auctor sem. Nullam ac tincidunt tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus dolor erat, ornare non scelerisque neo, hendrerit a ligula." },
-        { id: 2, day: "02", month: "JUL", time: "6:00 PM", title: "REACT BOOTCAMP", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam velit. Ut sit amet auctor sem. Nullam ac tincidunt tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus dolor erat, ornare non scelerisque neo, hendrerit a ligula." },
-        { id: 3, day: "15", month: "JUL", time: "3:00 PM", title: "UI/UX MASTERCLASS", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam velit. Ut sit amet auctor sem. Nullam ac tincidunt tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus dolor erat, ornare non scelerisque neo, hendrerit a ligula." },
-        { id: 4, day: "20", month: "JUL", time: "5:00 PM", title: "PYTHON BASICS", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id aliquam velit. Ut sit amet auctor sem. Nullam ac tincidunt tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus dolor erat, ornare non scelerisque neo, hendrerit a ligula." }
+        {
+            id: 1,
+            day: "--",
+            month: "TBA",
+            time: "—",
+            title: "COMING SOON",
+            description:
+                "No upcoming events right now. Stay tuned on our socials for announcements."
+        }
+        ,
+          {
+            id: 2,
+            day: "--",
+            month: "TBA",
+            time: "—",
+            title: "COMING SOON",
+            description:
+                "No upcoming events right now. Stay tuned on our socials for announcements."
+        }
     ];
 
     const duplicatedEvents = [...events, ...events];
